@@ -4,6 +4,8 @@ import { setAdminToken } from "../../api/adminApi";
 import logoDark from "../../assets/footer_logo.png";
 import HomeTab from "./HomeTab";
 import UsersTab from "./UsersTab";
+import ManagersTab from "./ManagersTab";
+import FreelancersTab from "./FreelancersTab";
 
 const NAV = [
   { key: "home", label: "Home", icon: "🏠" },
@@ -69,9 +71,9 @@ export default function AdminDashboard() {
 
         <main className="p-5 sm:p-8 flex-1">
           {tab === "home" && <HomeTab />}
-          {tab === "freelancers" && <UsersTab title="Freelancers" endpoint="/api/admin/freelancers" listKey="freelancers" />}
+          {tab === "freelancers" && <FreelancersTab />}
           {tab === "business" && <UsersTab title="Businesses" endpoint="/api/admin/businesses" listKey="businesses" />}
-          {tab === "managers" && <ComingSoon title="Managers / Roles" />}
+          {tab === "managers" && <ManagersTab />}
           {tab === "articles" && <ComingSoon title="Articles" />}
         </main>
       </div>
