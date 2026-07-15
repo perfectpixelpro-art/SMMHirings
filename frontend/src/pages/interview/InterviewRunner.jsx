@@ -5,14 +5,15 @@ import logo from "../../assets/logo.png";
 const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
 const WS_URL = BACKEND.replace(/^http/, "ws") + "/ws/interview";
 
+// Scores are out of 10.
 const ScoreBar = ({ label, value }) => (
   <div style={{ marginBottom: 12 }}>
     <div className="flex justify-between mb-1">
       <span className="text-[13px] text-gray-600">{label}</span>
-      <span className="text-[13px] font-bold text-gray-900">{value}</span>
+      <span className="text-[13px] font-bold text-gray-900">{value}<span className="text-gray-400 font-normal">/10</span></span>
     </div>
     <div style={{ height: 8, background: "#e5e7eb", borderRadius: 999 }}>
-      <div style={{ width: `${Math.max(0, Math.min(100, value))}%`, height: "100%", background: "#12B3EF", borderRadius: 999 }} />
+      <div style={{ width: `${Math.max(0, Math.min(100, value * 10))}%`, height: "100%", background: "#12B3EF", borderRadius: 999 }} />
     </div>
   </div>
 );
@@ -167,7 +168,7 @@ export default function InterviewRunner({ session, onExit }) {
                 <div className="inline-block mt-4 px-5 py-2 rounded-xl" style={{ background: "#e0f5ff" }}>
                   <span className="text-[13px] text-gray-500">Overall</span>{" "}
                   <span className="text-[22px] font-extrabold" style={{ color: "#12B3EF" }}>{report.scores.overall}</span>
-                  <span className="text-[13px] text-gray-400">/100</span>
+                  <span className="text-[13px] text-gray-400">/10</span>
                 </div>
               </div>
               <ScoreBar label="Grammar" value={report.scores.grammar} />

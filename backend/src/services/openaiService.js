@@ -94,8 +94,9 @@ export async function generateFinalReport({ role, history }) {
         { role: "system", content: SYSTEM_PROMPT },
         {
           role: "user",
-          content: `The spoken English interview for role "${role}" is complete. Produce a final evaluation.
-Score each dimension from 0 to 100. Be encouraging but honest. Weight fluency/confidence/relevance more than perfect grammar.
+          content: `The spoken English interview for role "${role}" is complete. Produce a final evaluation of the candidate's spoken ENGLISH.
+Score each dimension from 0 to 10 (whole numbers only, where 10 is excellent). Be encouraging but honest. Weight fluency/confidence/relevance more than perfect grammar.
+"overall" must be the candidate's overall English score out of 10.
 
 Full transcript:
 ${historyToText(history)}
