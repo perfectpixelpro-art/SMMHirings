@@ -13,6 +13,7 @@ import BusinessProfilePage from "./pages/profile/BusinessProfilePage";
 import FreelancerProfilePage from "./pages/profile/FreelancerProfilePage";
 import ProfilePending from "./pages/profile/ProfilePending";
 import AIInterview from "./pages/AIInterview";
+import FreelancerDashboard from "./pages/freelancer/FreelancerDashboard";
 import RequireAdmin from "./components/RequireAdmin";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/profile/freelancer" element={<RequireAuth role="freelancer"><FreelancerProfilePage /></RequireAuth>} />
           <Route path="/profile/pending" element={<RequireAuth><ProfilePending /></RequireAuth>} />
           <Route path="/ai-interview" element={<RequireAuth><AIInterview /></RequireAuth>} />
+          <Route path="/dashboard" element={<RequireAuth role="freelancer"><FreelancerDashboard /></RequireAuth>} />
 
           {/* Admin (separate auth) */}
           <Route path="/admin/login" element={<AdminLogin />} />

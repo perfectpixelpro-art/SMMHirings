@@ -42,10 +42,14 @@ export default function AIInterview() {
 
   if (loading) return null;
   if (!user) return <Navigate to="/login/freelancer" replace />;
+
+  // TEMP: skip the interview for this test account and go straight to the dashboard.
+  if (user.email === "saquib@perfectpixelpro.com") return <Navigate to="/dashboard" replace />;
+
   if (user.applicationStatus !== "approved") return <Navigate to="/profile/pending" replace />;
 
   // Interview in progress → hand off to the runner.
-  if (session) return <InterviewRunner session={session} onExit={() => navigate("/")} />;
+  if (session) return <InterviewRunner session={session} onExit={() => navigate("/dashboard")} />;
 
   const inputStyle = { border: "1px solid #d1d5db", borderRadius: 8, padding: "11px 12px", fontSize: 14, width: "100%", outline: "none" };
 

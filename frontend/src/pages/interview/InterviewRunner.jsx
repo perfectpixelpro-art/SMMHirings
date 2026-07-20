@@ -180,7 +180,7 @@ export default function InterviewRunner({ session, onExit }) {
                 <p className="text-[13px] font-bold text-gray-900 mb-1">Feedback</p>
                 <p className="text-[14px] text-gray-600 leading-relaxed">{report.feedback}</p>
               </div>
-              <button onClick={onExit} className="w-full mt-6 text-white font-semibold rounded-xl" style={{ background: "#12B3EF", padding: 13, border: "none", cursor: "pointer" }}>Back to Home</button>
+              <button onClick={onExit} className="w-full mt-6 text-white font-semibold rounded-xl" style={{ background: "#12B3EF", padding: 13, border: "none", cursor: "pointer" }}>See Matched Jobs  →</button>
             </div>
           ) : (
             <div className="text-center py-20"><Spinner /><p className="text-gray-500 mt-4">Generating your report…</p></div>
