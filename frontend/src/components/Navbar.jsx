@@ -4,55 +4,55 @@ import logo from "../assets/logoFinal.png";
 
 const SERVICES = [
   {
-    label: "Social Media Management",
+    label: "Hire Social Media Manager",
     slug: "hire-social-media-manager",
   },
   {
-    label: "Content Writing & Copywriting",
+    label: "Hire Content Writers & Copywriters",
     slug: "hire-content-writer-copywriter",
   },
   {
-    label: "Video Production & Editing",
+    label: "Hire Video Editor",
     slug: "hire-video-editor-producer",
   },
   {
-    label: "Short-Form Videos",
+    label: "Hire Short Form Video Editor",
     slug: "hire-short-form-video-editor",
   },
   {
-    label: "Podcast Production",
+    label: "Hire Podcast Producer",
     slug: "hire-podcast-producer-editor",
   },
   {
-    label: "Graphic Design & Visual Branding",
+    label: "Hire Graphic Designer",
     slug: "hire-graphic-designer",
   },
   {
-    label: "Website Design & Development",
+    label: "Hire Web Designer & Developer",
     slug: "hire-web-designer-developer",
   },
   {
-    label: "App Design & Development",
+    label: "Hire App Developer",
     slug: "hire-app-designer-developer",
   },
   {
-    label: "Voice Over & Audio Production",
+    label: "Hire Voice Over Artist",
     slug: "hire-voice-over-artist-audio-producer",
   },
   {
-    label: "Paid Social & Ads Management",
+    label: "Hire Paid Social Ads Expert",
     slug: "hire-paid-social-ads-expert",
   },
   {
-    label: "Community Management",
+    label: "Hire Community Manager",
     slug: "hire-community-manager",
   },
   {
-    label: "Analytics & Reporting",
+    label: "Hire Marketing Analytics Expert",
     slug: "hire-marketing-analytics-expert",
   },
   {
-    label: "Consulting & Audits",
+    label: "Hire Marketing Consultant",
     slug: "hire-digital-marketing-consultant",
   },
 ];

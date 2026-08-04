@@ -4,55 +4,55 @@ import logo from "../assets/logo.png";
 
 const SERVICES = [
   {
-    label: "Social Media Management",
+    label: "Hire Social Media Manager",
     href: "/business-services/hire-social-media-manager/",
   },
   {
-    label: "Content Writing & Copywriting",
+    label: "Hire Content Writers & Copywriters",
     href: "/business-services/hire-content-writer-copywriter/",
   },
   {
-    label: "Video Production & Editing",
+    label: "Hire Video Editor",
     href: "/business-services/hire-video-editor-producer/",
   },
   {
-    label: "Short-Form Videos",
+    label: "Hire Short Form Video Editor",
     href: "/business-services/hire-short-form-video-editor/",
   },
   {
-    label: "Podcast Production",
+    label: "Hire Podcast Producer",
     href: "/business-services/hire-podcast-producer-editor/",
   },
   {
-    label: "Graphic Design & Visual Branding",
+    label: "Hire Graphic Designer",
     href: "/business-services/hire-graphic-designer/",
   },
   {
-    label: "Website Design & Development",
+    label: "Hire Web Designer & Developer",
     href: "/business-services/hire-web-designer-developer/",
   },
   {
-    label: "App Design & Development",
+    label: "Hire App Developer",
     href: "/business-services/hire-app-designer-developer/",
   },
   {
-    label: "Voice Over & Audio Production",
+    label: "Hire Voice Over Artist",
     href: "/business-services/hire-voice-over-artist-audio-producer/",
   },
   {
-    label: "Paid Social & Ads Management",
+    label: "Hire Paid Social Ads Expert",
     href: "/business-services/hire-paid-social-ads-expert/",
   },
   {
-    label: "Community Management",
+    label: "Hire Community Manager",
     href: "/business-services/hire-community-manager/",
   },
   {
-    label: "Analytics & Reporting",
+    label: "Hire Marketing Analytics Expert",
     href: "/business-services/hire-marketing-analytics-expert/",
   },
   {
-    label: "Consulting & Audits",
+    label: "Hire Marketing Consultant",
     href: "/business-services/hire-digital-marketing-consultant/",
   },
 ];
