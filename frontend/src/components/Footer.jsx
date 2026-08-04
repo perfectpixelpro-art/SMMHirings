@@ -1,115 +1,164 @@
-import React from "react";
-import fotter_bg from "../assets/fotter_bg.png";
-import footer_logo from "../assets/footer_logo.png";
+import { Link } from "react-router-dom";
+import footer_logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="w-full">
+    <footer className="w-full bg-white mt-25 lg:mt-30">
+      <div className="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-[78px] py-6 lg:py-6">
+        <div className="flex flex-col lg:flex-row justify-between gap-20 lg:gap-120">
+          {/* Left */}
+          <div className="lg:w-[32%]">
+            <img
+              src={footer_logo}
+              alt="SMM Hiring"
+              className="h-[58px] w-auto object-contain"
+            />
 
-      {/* ── Top Section: Dark bg image ── */}
-      <div className="relative w-full text-center overflow-hidden min-h-[300px] sm:min-h-[340px] md:min-h-[380px]">
-        <img
-          src={fotter_bg}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        <div className="relative z-10 flex flex-col items-center w-full px-5 py-12 sm:px-10 sm:py-14 md:py-16 lg:py-20 xl:py-24">
-
-          <h2 className="font-black text-center leading-[1.2] mb-4 text-[20px] sm:text-[26px] md:text-[32px] lg:text-[38px] xl:text-[42px]">
-            <span className="text-white">Execution Is Trusted When The</span>
-            <br />
-            <span className="text-white">Standard </span>
-            <span className="italic font-black" style={{ color: "#12B3EF", fontFamily: "Georgia, 'Times New Roman', serif" }}>
-              Stays Consistent.
-            </span>
-          </h2>
-
-          <p className="text-[12px] sm:text-[13px] md:text-[14px] text-center leading-[1.9] mb-6 px-2 sm:px-0" style={{ color: "#cbd5e1", maxWidth: "520px" }}>
-            Work inside the system follows a fixed level of clarity, structure, and delivery. Every<br />
-            output is reviewed against the same execution standard before it moves forward.
-          </p>
-
-          <button
-            className="text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: "#12B3EF", border: "1.5px solid #7de0fa", fontSize: "14px", padding: "10px 28px", letterSpacing: "0.01em" }}
-          >
-            Apply to SMM Hiring
-          </button>
-
-          <p className="text-[10px] sm:text-[11px] tracking-wide" style={{ color: "#94a3b8", paddingTop: "32px" }}>
-            Applications reviewed on a rolling basis · Entry based on execution quality
-          </p>
-        </div>
-      </div>
-
-      <style>{`
-        @media (max-width: 800px) {
-          .footer-bottom-row {
-            flex-direction: column !important;
-          }
-          .footer-cols {
-            width: 100% !important;
-            justify-content: flex-start !important;
-            gap: 28px !important;
-          }
-        }
-      `}</style>
-      {/* ── Bottom Section: Black bg with logo + links ── */}
-      <div className="w-full px-5 py-8 sm:px-10 sm:py-10 md:px-16 md:py-10 lg:px-24 lg:py-10 xl:px-32 xl:py-10" style={{ backgroundColor: "#000000" }}>
-
-        {/* Mobile: stack, Desktop: row */}
-        <div className="footer-bottom-row flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-4">
-
-          {/* Left: Logo + tagline — takes ~30% */}
-          <div className="flex flex-col gap-2" style={{ width: "30%" }}>
-            <div className="flex items-center gap-2">
-              <img
-                src={footer_logo}
-                alt="SMM Hiring"
-                className="w-auto object-contain"
-                style={{ height: "22px" }}
-              />
-            </div>
-            <p style={{ fontSize: "11px", color: "#6b7280", lineHeight: "1.8", marginTop: "4px" }}>
-              The Social execution network.<br />
+            <p
+              className="
+                font-[200]
+                mt-6
+                text-[18px]
+                leading-8
+                text-[#6B7280]
+                max-w-[340px]
+              "
+            >
+              The Social execution network.
+              <br />
               Structured, reliable, consistent.
             </p>
           </div>
 
-          {/* Right: 3 columns — takes ~70%, justified with space between */}
-          <div className="footer-cols flex flex-row justify-end flex-wrap gap-8 sm:gap-10 md:gap-14 lg:gap-16" style={{ width: "70%" }}>
-
+          {/* Right */}
+          <div
+            className="
+              lg:w-[68%]
+              grid
+              grid-cols-2
+              sm:grid-cols-3
+              gap-y-10
+              gap-x-12
+              lg:justify-items-end
+            "
+          >
             {/* Platform */}
-            <div className="flex flex-col" style={{ gap: "8px", minWidth: "80px" }}>
-              <p style={{ fontSize: "10px", fontWeight: 700, color: "#ffffff", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "4px" }}>Platform</p>
-              {["About", "Process", "Standards", "Apply"].map((item) => (
-                <a key={item} href="#" style={{ fontSize: "12px", color: "#6b7280", textDecoration: "none" }} className="hover:text-white transition-colors">{item}</a>
-              ))}
+            <div>
+              <h4
+                className="
+                  text-black
+                  text-[16px]
+                  font-[500]
+                  mb-5
+                  uppercase
+                  tracking-[0.07em]
+                "
+              >
+                Platform
+              </h4>
+
+              <div className="flex flex-col gap-1.5">
+                <Link
+                  to="/about/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  About Us
+                </Link>
+
+                <Link
+                  to="/contact/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  Contact Us
+                </Link>
+
+                <Link
+                  to="/business-services/hire-social-media-manager/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  Services
+                </Link>
+
+             
+              </div>
             </div>
 
             {/* Work */}
-            <div className="flex flex-col" style={{ gap: "8px", minWidth: "110px" }}>
-              <p style={{ fontSize: "10px", fontWeight: 700, color: "#ffffff", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "4px" }}>Work</p>
-              {["Social Media", "Short-Form Video", "Visual Content", "Website"].map((item) => (
-                <a key={item} href="#" style={{ fontSize: "12px", color: "#6b7280", textDecoration: "none" }} className="hover:text-white transition-colors">{item}</a>
-              ))}
+            <div>
+              <h4
+                className="
+                  text-black
+                  text-[16px]
+                  font-[500]
+                  mb-5
+                  tracking-[0.07em]
+                  uppercase
+                "
+              >
+                Work
+              </h4>
+
+              <div className="flex flex-col gap-1.5">
+                <Link
+                  to="/business-services/hire-social-media-manager/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  Social Media
+                </Link>
+
+                <Link
+                  to="/business-services/hire-short-form-video-editor/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  Short-Form Video
+                </Link>
+
+                <Link
+                  to="/business-services/hire-graphic-designer/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  Visual Branding
+                </Link>
+
+              
+              </div>
             </div>
 
             {/* Contact */}
-            <div className="flex flex-col" style={{ gap: "8px", minWidth: "90px" }}>
-              <p style={{ fontSize: "10px", fontWeight: 700, color: "#ffffff", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "4px" }}>Contact</p>
-              {["Get in Touch", "The Social 99", "Privacy Policy", "Terms"].map((item) => (
-                <a key={item} href="#" style={{ fontSize: "12px", color: "#6b7280", textDecoration: "none" }} className="hover:text-white transition-colors">{item}</a>
-              ))}
-            </div>
+            <div>
+              <h4
+                className="
+                  text-black
+                  text-[16px]
+                  font-[500]
+                  tracking-[0.07em]
+                  uppercase
+                  mb-5
+                "
+              >
+                Contact
+              </h4>
 
+              <div className="flex flex-col gap-1.5">
+                <Link
+                  to="/contact/"
+                  className="font-[200] text-[16px] text-[#6B7280] hover:text-[#19B8F5] transition"
+                >
+                  Get in Touch
+                </Link>
+
+           
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="w-full mt-8" style={{ borderTop: "1px solid #1f2937" }} />
-
+        {/* Bottom Divider */}
+        <div className="border-t border-gray-300 mt-10 pt-8">
+          <p className="text-center text-[15px] text-gray-500">
+            © {new Date().getFullYear()} SMM Hiring. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

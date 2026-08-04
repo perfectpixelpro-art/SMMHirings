@@ -1,141 +1,179 @@
-import React, { useState } from "react";
-import heroImage from "../assets/hero-image.png";
+import { useNavigate } from "react-router-dom";
+import freelancerVideo from "../assets/Freelancers.mp4";
+import businessVideo from "../assets/Business.mp4";
 
-export default function Hero() {
-  const [searchVal, setSearchVal] = useState("");
+export default function Hero({ landingType, setLandingType }) {
+  const isFreelancer = landingType === "freelancer";
+  const navigate = useNavigate();
+
+  const handleCTA = () => {
+    navigate(isFreelancer ? "/login/freelancer" : "/login/business");
+  };
 
   return (
-    <section className="flex flex-col md:flex-row items-center gap-8 md:gap-10 px-5 pt-10 pb-0 sm:px-10 sm:pt-12 sm:pb-0 md:px-16 md:pt-14 md:pb-0 lg:px-24 lg:pt-16 lg:pb-0 xl:px-50 xl:pt-16 xl:pb-0">
+    <section className="relative h-screen w-full overflow-hidden">
 
-      {/* Left Content */}
-      <div className="w-full md:w-[420px] lg:w-[460px] xl:w-[500px] flex-shrink-0">
+      {/* Background Video */}
+      <video
+        key={landingType}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src={isFreelancer ? freelancerVideo : businessVideo} type="video/mp4" />
+      </video>
 
-        {/* Badge */}
-        <div
-          className="inline-flex items-center gap-[6px] mb-4 md:mb-5"
-          style={{
-            backgroundColor: "#ffffff",
-            border: "1.5px solid #a8ddf5",
-            borderRadius: "999px",
-            paddingTop: "4px",
-            paddingBottom: "4px",
-            paddingLeft: "9px",
-            paddingRight: "13px",
-          }}
-        >
-          <span
-            style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              backgroundColor: "#12B3EF",
-              display: "inline-block",
-              flexShrink: 0,
-            }}
-          />
-          <span
-            style={{
-              fontSize: "10px",
-              fontWeight: 500,
-              letterSpacing: "0.10em",
-              color: "#9ca3af",
-              textTransform: "uppercase",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Closed System · Structured Work
-          </span>
-        </div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/20" />
 
-        {/* Headline */}
-        <h1
-          className="mb-4 text-gray-900 text-[28px] sm:text-[32px] md:text-[34px] lg:text-[38px] xl:text-[42px]"
-          style={{ fontWeight: 800, lineHeight: "1.2", letterSpacing: "-0.3px" }}
-        >
-          Structured work with
-          <br />
-          <span style={{ whiteSpace: "nowrap" }}>
-            <span
-              style={{
-                color: "#12B3EF",
-                fontStyle: "italic",
-                fontFamily: "Georgia, 'Times New Roman', serif",
-                fontWeight: 800,
-              }}
-            >
-              clear expectations
-            </span>
-            <span style={{ color: "#111827" }}> from</span>
-          </span>
-          <br />
-          the start
-        </h1>
+      {/* Hero Content */}
+      <div className="relative z-20 flex h-full flex-col">
 
-        {/* Subtext */}
-        <p className="text-[13px] sm:text-[13.5px] md:text-[14px] text-gray-500 leading-[1.65] mb-6 md:mb-7 max-w-full md:max-w-[360px]">
-          Work is assigned through a defined system with clear
-          briefs and fixed expectations. Your role is to execute it
-          to standard.
-        </p>
+        {/* ── MOBILE: content pinned to bottom over video ── */}
+        <div className="sm:hidden flex flex-col justify-end h-full pb-10 px-5">
 
-        {/* CTA Buttons */}
-        <div className="flex items-center gap-4 md:gap-5 mb-7 md:mb-8 flex-wrap">
-          <button
-            className="text-white font-semibold rounded-lg transition-colors hover:bg-[#0fa0d6]"
-            style={{ backgroundColor: "#12B3EF", fontSize: "13px", padding: "11px 20px" }}
-          >
-            Apply to SMM Hiring
-          </button>
-          <button
-            className="font-semibold text-gray-800 hover:text-[#12B3EF] hover:border-[#12B3EF] transition-colors bg-transparent"
-            style={{ fontSize: "13px", border: "1.5px solid #d1d5db", borderRadius: "7px", padding: "10px 18px", cursor: "pointer" }}
-          >
-            See how it works
-          </button>
-        </div>
-
-        {/* Search Bar */}
-        <div className="flex items-center gap-2 mb-3 flex-wrap sm:flex-nowrap">
+          {/* Toggle */}
           <div
-            className="flex items-center gap-2 bg-white flex-1 sm:flex-none"
-            style={{ border: "1px solid #d1d5db", borderRadius: "6px", padding: "9px 12px", width: "100%", maxWidth: "260px" }}
+            className="flex rounded-full p-1 self-start mb-5"
+            style={{
+              background: "rgba(255,255,255,0.15)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.25)",
+            }}
           >
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#9ca3af" strokeWidth={2} style={{ flexShrink: 0 }}>
-              <circle cx="11" cy="11" r="7" />
-              <path strokeLinecap="round" d="M21 21l-4-4" />
-            </svg>
-            <input
-              type="text"
-              placeholder="What do you specialize in?"
-              value={searchVal}
-              onChange={e => setSearchVal(e.target.value)}
-              style={{ background: "transparent", outline: "none", border: "none", fontSize: "12px", color: "#6b7280", width: "100%" }}
-            />
+            <button
+              onClick={() => setLandingType("freelancer")}
+              className={`
+                px-5 py-2 rounded-full text-[14px] font-medium transition-all duration-300
+                ${isFreelancer
+                  ? "bg-[#1CB9F5] text-white shadow-sm"
+                  : "text-white/80 hover:text-white"
+                }
+              `}
+            >
+              Freelancer
+            </button>
+            <button
+              onClick={() => setLandingType("business")}
+              className={`
+                px-5 py-2 rounded-full text-[14px] font-medium transition-all duration-300
+                ${!isFreelancer
+                  ? "bg-[#19baf5] text-white shadow-sm"
+                  : "text-white/80 hover:text-white"
+                }
+              `}
+            >
+              Business
+            </button>
           </div>
+
+          {/* Heading */}
+          <h1 className="text-white font-bold tracking-[-0.5px] leading-[1.1] text-[34px] mb-4">
+            {isFreelancer ? (
+              <>Not a marketplace.<br />A managed system.</>
+            ) : (
+              <>Skip the search.<br />Get the right fit.</>
+            )}
+          </h1>
+
+          {/* Sub line */}
+          <p className="text-white/75 text-[13px] leading-relaxed mb-6">
+            {isFreelancer
+              ? "Real work, matched to you. No bidding. No chasing clients."
+              : "Vetted talent, matched to your brief. Managed end-to-end."}
+          </p>
+
+          {/* CTA Button */}
           <button
-            className="text-white font-semibold rounded-md hover:bg-[#0fa0d6] transition-colors"
-            style={{ backgroundColor: "#12B3EF", fontSize: "13px", padding: "9px 18px", border: "none", cursor: "pointer", flexShrink: 0 }}
+            onClick={handleCTA}
+            className={`
+              w-full h-[50px]
+              rounded-full
+              active:scale-95
+              transition-all duration-300
+              text-[15px] font-semibold text-white shadow-md
+              ${isFreelancer
+                ? "bg-[#1CB9F5] hover:bg-[#14ACE8]"
+                : "bg-[#19baf5] hover:bg-[#339900]"
+              }
+            `}
           >
-            Search
+            {isFreelancer ? "Apply as a Freelancer" : "Hire a Freelancer"}
           </button>
+
         </div>
 
-        {/* Specialty Tags */}
-        <p className="text-[10px] sm:text-[11px] text-gray-400 font-normal" style={{ letterSpacing: "0.01em" }}>
-          Social Media · Video · Visual Content · Web Copy
-        </p>
-      </div>
+        {/* ── DESKTOP: unchanged ── */}
+        <div className="hidden sm:flex flex-1 items-center">
+          <div className="w-full mt-[-60px] max-w-[1700px] mx-auto px-10 lg:px-[78px]">
+            <div className="max-w-[720px]">
+              <h1
+                className="
+                  text-white font-semibold tracking-[-0.5px] leading-[1.1]
+                  text-[56px]
+                  md:text-[64px]
+                  lg:text-[74px]
+                  xl:text-[80px]
+                "
+              >
+                {isFreelancer ? (
+                  <>Not a marketplace.<br />A managed system.</>
+                ) : (
+                  <>Skip the search.<br />Get the right fit.</>
+                )}
+              </h1>
 
-      {/* Right: Hero Image */}
-      <div className="flex-1 flex justify-center md:justify-end items-center w-full md:w-auto">
-        <img
-          src={heroImage}
-          alt="SMM Hiring Dashboard"
-          className="w-full sm:w-[85%] md:w-full object-contain"
-          style={{ maxWidth: "520px" }}
-        />
-      </div>
+              <button
+                onClick={handleCTA}
+                className="
+                  mt-8
+                  h-[54px]
+                  rounded-full
+                  bg-[#1CB9F5] hover:bg-[#14ACE8]
+                  transition-all duration-300
+                  px-8
+                  text-[16px]
+                  font-medium text-white shadow-lg
+                "
+              >
+                {isFreelancer ? "Apply as a Freelancer" : "Hire a Freelancer"}
+              </button>
+            </div>
+          </div>
+        </div>
 
+        {/* ── DESKTOP: Bottom Glass Bar ── */}
+        <div className="hidden sm:block absolute bottom-8 left-0 w-full">
+          <div
+            className="mx-10 lg:mx-[78px] rounded-[16px] relative overflow-hidden"
+            style={{
+              background: "rgba(18, 179, 239, 0.28)",
+              backdropFilter: "blur(12px) saturate(160%)",
+              WebkitBackdropFilter: "blur(12px) saturate(160%)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.2)",
+            }}
+          >
+            <div
+              className="absolute inset-x-0 top-0 h-[1px] pointer-events-none"
+              style={{
+                background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent)",
+              }}
+            />
+            <div className="px-8 py-[14px] relative z-10">
+              <p className="text-center text-white text-[14px] md:text-[15px] lg:text-[16px] font-normal leading-normal">
+                {isFreelancer
+                  ? "We pair every project with the right vetted talent, then manage the work ourselves. So freelancers get real opportunities without competing in crowded marketplaces."
+                  : "Forget sorting through hundreds of profiles or gambling on a stranger's promises. Get matched directly with talent already vetted for your exact need."}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }
