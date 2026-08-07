@@ -6,6 +6,7 @@ import RealWork from "../components/RealWork";
 import HowItWorks from "../components/HowItWorks";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
+import PainPoints from "../components/PainPoints";
 
 export default function HomePage() {
   const [landingType, setLandingType] = useState("freelancer");
@@ -14,10 +15,11 @@ export default function HomePage() {
     <div className="font-sans">
       <Navbar landingType={landingType} setLandingType={setLandingType}/>
       <Hero landingType={landingType} setLandingType={setLandingType} />
-      <WhyDifferent landingType={landingType}/>
-      <RealWork landingType={landingType} />
+      <PainPoints landingType={landingType} />
+      {/* <WhyDifferent landingType={landingType}/>
+      <RealWork landingType={landingType} /> */}
       <HowItWorks landingType={landingType} />
-      <Categories landingType={landingType} />
+      {/* <Categories landingType={landingType} /> */}
       <Footer/>
     </div>
   );
