@@ -60,9 +60,9 @@ export default function PainPoints({ landingType = "freelancer" }) {
   const data = CONTENT[landingType] ?? CONTENT.freelancer;
 
   return (
-    <section className="bg-white mt-16 py-0 lg:py-0 overflow-hidden">
+    <section className="bg-white mt-16 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px] py-0 lg:py-0 overflow-hidden">
       {/* Header */}
-      <div className="px-5 sm:px-10 lg:px-[78px] mb-6 lg:mb-8">
+      <div className="px-5 sm:px-10 lg:px-[78px]  mb-6 lg:mb-8">
         <h2 className="text-[32px]  sm:text-[40px] leading-9 lg:leading-14 lg:text-[48px] font-semibold text-gray-900  mb-1.5">
           <span className="block">{data.titleLine1}</span>
           <span className="block text-sky-500">
@@ -84,9 +84,9 @@ export default function PainPoints({ landingType = "freelancer" }) {
                   src={arrowIcon}
                   alt=""
                   aria-hidden="true"
-                  className="mt-1 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0"
+                  className="mt-1 h-4 w-4 sm:h-6 sm:w-6 flex-shrink-0"
                 />
-                <p className="text-[18px] leading-relaxed text-slate-700">
+                <p className="text-[19px] leading-relaxed text-slate-700">
                   {point.text}
                   {point.linkText && (
                     <>

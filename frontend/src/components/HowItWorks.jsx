@@ -50,7 +50,7 @@ export default function HowItWorks({ landingType = "freelancer" }) {
   const data = landingType === "business" ? CONTENT.business : CONTENT.freelancer;
 
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
         {/* Heading */}
         <h2
