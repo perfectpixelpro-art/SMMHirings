@@ -71,9 +71,9 @@ export default function Hero({ landingType, setLandingType }) {
           </div>
 
           {/* Heading */}
-          <h1 className="text-white font-bold tracking-[-0.5px] leading-[1.1] text-[34px] mb-4">
+          <h1 className="text-white font-bold tracking-[-0.5px] leading-[1.1] text-[26px] mb-4">
             {isFreelancer ? (
-              <>Not a marketplace.<br />A managed system.</>
+               <>Find Top-Rated Freelancers<br />Jobs for Digital Marketing & <br/>Creative Services</>
             ) : (
               <>Skip the search.<br />Get the right fit.</>
             )}
@@ -82,7 +82,7 @@ export default function Hero({ landingType, setLandingType }) {
           {/* Sub line */}
           <p className="text-white/75 text-[13px] leading-relaxed mb-6">
             {isFreelancer
-              ? "Real work, matched to you. No bidding. No chasing clients."
+              ? "Free to apply. No subscription. No bidding against other freelancers."
               : "Vetted talent, matched to your brief. Managed end-to-end."}
           </p>
 
@@ -109,18 +109,19 @@ export default function Hero({ landingType, setLandingType }) {
         {/* ── DESKTOP: unchanged ── */}
         <div className="hidden sm:flex flex-1 items-center">
           <div className="w-full mt-[-60px] max-w-[1700px] mx-auto px-10 lg:px-[78px]">
-            <div className="max-w-[720px]">
+            <div className="max-w-[1120px]">
               <h1
                 className="
                   text-white font-semibold tracking-[-0.5px] leading-[1.1]
                   text-[56px]
                   md:text-[64px]
                   lg:text-[74px]
-                  xl:text-[80px]
+                  xl:text-[60px]
+                   2xl:text-[75px]
                 "
               >
                 {isFreelancer ? (
-                  <>Not a marketplace.<br />A managed system.</>
+                  <>Find Top-Rated Freelancers<br />Jobs for Digital Marketing & <br/>Creative Services</>
                 ) : (
                   <>Skip the search.<br />Get the right fit.</>
                 )}
@@ -129,18 +130,25 @@ export default function Hero({ landingType, setLandingType }) {
               <button
                 onClick={handleCTA}
                 className="
-                  mt-8
-                  h-[54px]
+                  mt-6
+                  h-[58px]
                   rounded-full
                   bg-[#1CB9F5] hover:bg-[#14ACE8]
                   transition-all duration-300
                   px-8
-                  text-[16px]
+                  text-[18px]
                   font-medium text-white shadow-lg
                 "
               >
                 {isFreelancer ? "Apply as a Freelancer" : "Hire a Freelancer"}
               </button>
+              <p className="text-white mt-6">
+                {isFreelancer ? (
+                  <>Free to apply. No subscription. No bidding against other freelancers.</>
+                ) : (
+                  <></>
+                )}
+              </p>
             </div>
           </div>
         </div>
@@ -164,9 +172,9 @@ export default function Hero({ landingType, setLandingType }) {
               }}
             />
             <div className="px-8 py-[14px] relative z-10">
-              <p className="text-center text-white text-[14px] md:text-[15px] lg:text-[16px] font-normal leading-normal">
+              <p className="text-center text-white text-[14px] md:text-[15px] lg:text-[18px] font-normal leading-[2]">
                 {isFreelancer
-                  ? "We pair every project with the right vetted talent, then manage the work ourselves. So freelancers get real opportunities without competing in crowded marketplaces."
+                  ? "Most Freelance and  Digital Marketing  jobs start with a proposal you send into silence. Here, you skip that step. Apply once, and defined briefs come to you based on what you specialize in, whether that's short-form video, copywriting, community management, or paid socials."
                   : "Forget sorting through hundreds of profiles or gambling on a stranger's promises. Get matched directly with talent already vetted for your exact need."}
               </p>
             </div>

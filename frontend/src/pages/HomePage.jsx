@@ -5,19 +5,35 @@ import WhyDifferent from "../components/WhyDifferent";
 import RealWork from "../components/RealWork";
 import HowItWorks from "../components/HowItWorks";
 import Categories from "../components/Categories";
-import Footer from "../components/Footer";
+import Footer from "../components/BlackFooter";
+import PainPoints from "../components/PainPoints";
+import Compare from "../components/Compare";
+import BuiltFor from "../components/BuiltFor";
+import Testimonials from "../components/Testimonials";
+import Faq from "../components/Faq";
+import FooterCTA from "../components/FooterCTA";
+
+
 
 export default function HomePage() {
   const [landingType, setLandingType] = useState("freelancer");
 
   return (
-    <div className="font-sans">
+    <div className="font-sans  ">
       <Navbar landingType={landingType} setLandingType={setLandingType}/>
       <Hero landingType={landingType} setLandingType={setLandingType} />
-      <WhyDifferent landingType={landingType}/>
-      <RealWork landingType={landingType} />
+      <PainPoints landingType={landingType} />
+      {/* <WhyDifferent landingType={landingType}/>
+      <RealWork landingType={landingType} /> */}
       <HowItWorks landingType={landingType} />
-      <Categories landingType={landingType} />
+       <WhyDifferent landingType={landingType}/>
+       <Categories landingType={landingType} />
+       <Compare landingType={landingType} />
+        <BuiltFor landingType={landingType} />
+        <Testimonials landingType={landingType} />
+        <Faq landingType={landingType} />
+        <FooterCTA landingType={landingType} setLandingType={setLandingType} />
+      {/* <Categories landingType={landingType} /> */}
       <Footer/>
     </div>
   );

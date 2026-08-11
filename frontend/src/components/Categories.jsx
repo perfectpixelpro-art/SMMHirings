@@ -1,119 +1,178 @@
-import { useNavigate } from "react-router-dom";
-import categoryF1 from "../assets/category1.png";
-import categoryF2 from "../assets/category2.png";
-import categoryF3 from "../assets/category3.png";
-import categoryF4 from "../assets/category4.png";
-import categoryF5 from "../assets/category5.png";
-import categoryB1 from "../assets/categoryB1.png";
-import categoryB2 from "../assets/categoryB2.png";
-import categoryB3 from "../assets/categoryB3.png";
-import categoryB4 from "../assets/categoryB4.png";
-import categoryB5 from "../assets/categoryB5.png";
+import { Link } from "react-router-dom";
 
+/* Simple inline icons (no extra dependency) */
+const IconWindow = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8">
+    <rect x="3" y="4" width="18" height="16" rx="2" stroke="#12b3ef" strokeWidth="1.7" />
+    <path d="M3 8h18" stroke="#12b3ef" strokeWidth="1.7" />
+    <circle cx="6" cy="6" r="0.7" fill="#12b3ef" />
+    <circle cx="8.4" cy="6" r="0.7" fill="#12b3ef" />
+  </svg>
+);
+const IconVideo = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8">
+    <rect x="3" y="6" width="13" height="12" rx="2" stroke="#12b3ef" strokeWidth="1.7" />
+    <path d="M16 10l5-3v10l-5-3v-4z" stroke="#12b3ef" strokeWidth="1.7" strokeLinejoin="round" />
+  </svg>
+);
+const IconDesign = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8">
+    <path d="M14 4l6 6L9 21H3v-6L14 4z" stroke="#12b3ef" strokeWidth="1.7" strokeLinejoin="round" />
+    <path d="M12.5 5.5l6 6" stroke="#12b3ef" strokeWidth="1.7" />
+  </svg>
+);
+const IconGrowth = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8">
+    <path d="M4 18l5-5 3 3 7-7" stroke="#12b3ef" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M15 8h4v4" stroke="#12b3ef" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
-const CONTENT = {
+const content = {
   freelancer: {
-    heading: "Opportunities Across Every Category",
-    subtitle: "Whatever you do, there's demand for it here.",
-    button: "Apply as a Freelancer",
-    categories: [
-      { title: "Vetted Projects", icon: categoryF1 },
-      { title: "Skill Showcase", icon: categoryF2 },
-      { title: "Secure Payments", icon: categoryF3 },
-      { title: "Pro Community", icon: categoryF4 },
-      { title: "Brand Exposure", icon: categoryF5 },
+    heading: {
+      before: "What Types of ",
+      accent: "Freelance Social Media Jobs",
+      after: " Can You Apply For?",
+    },
+    sub: "Pick your specialization, complete your SMM Application once, and you'll keep getting matched to freelance social media management jobs in that lane going forward.",
+    items: [
+      {
+        Icon: IconWindow,
+        title: "Content & Copy",
+        desc: "Social Media Management, Content Writing & Copywriting, Community Management, Analytics & Reporting",
+      },
+      {
+        Icon: IconVideo,
+        title: "Video & Audio",
+        desc: "Video Production & Editing, Short-Form Videos, Podcast Production, Voice Over & Audio Production",
+      },
+      {
+        Icon: IconDesign,
+        title: "Design & Development",
+        desc: "Graphic Design & Visual Branding, Website Design & Development, App Design & Development",
+      },
+      {
+        Icon: IconGrowth,
+        title: "Growth & Strategy",
+        desc: "Paid Social & Ads Management, Consulting & Audits",
+      },
     ],
+    footer: {
+      title: "Looking to hire instead?",
+      lead: "Head over to the Business side to ",
+      linkText: "Hire Social Media Manager",
+      linkTo: "/business-services/hire-social-media-manager/",
+      tail: " or Hire a Community Manager.",
+    },
   },
+
+  // Placeholder business copy, written to be swapped later
   business: {
-    heading: "Unlock Access to Elite Digital Talent",
-    subtitle: "Vetted experts, managed projects and guaranteed results.",
-    button: "Hire a Freelancer",
-    categories: [
-      { title: "Social media marketing", icon: categoryB1 },
-      { title: "Software development", icon: categoryB2 },
-      { title: "Video editing", icon: categoryB5 },
-      { title: "Graphic design", icon: categoryB4 },
-      { title: "Website design", icon: categoryB3 },
+    heading: {
+      before: "What Types of ",
+      accent: "Social Media Talent",
+      after: " Can You Hire?",
+    },
+    sub: "Post one brief, pick the specialization you need, and start reviewing applicants who actually do that kind of social media work.",
+    items: [
+      {
+        Icon: IconWindow,
+        title: "Content & Copy",
+        desc: "Social Media Managers, Content Writers & Copywriters, Community Managers, Analytics & Reporting",
+      },
+      {
+        Icon: IconVideo,
+        title: "Video & Audio",
+        desc: "Video Editors, Short-Form Video Creators, Podcast Producers, Voice Over & Audio Talent",
+      },
+      {
+        Icon: IconDesign,
+        title: "Design & Development",
+        desc: "Graphic Designers & Brand Designers, Web Designers & Developers, App Designers & Developers",
+      },
+      {
+        Icon: IconGrowth,
+        title: "Growth & Strategy",
+        desc: "Paid Social & Ads Managers, Consultants & Auditors",
+      },
     ],
+    footer: {
+      title: "Looking for work instead?",
+      lead: "Head over to the Freelancer side to ",
+      linkText: "Find Social Media Jobs",
+      linkTo: "/freelance-social-media-jobs/",
+      tail: " or browse open roles.",
+    },
   },
 };
 
-function CategoryItem({ icon, title }) {
-  return (
-    <div className="flex items-center gap-3">
-      <img
-        src={icon}
-        alt={title}
-        className="
-          w-[36px] h-[36px]
-          md:w-[42px] md:h-[42px]
-          lg:w-[46px] lg:h-[46px]
-          object-contain flex-shrink-0
-        "
-      />
-      <span className="text-[#111] font-normal text-[18px] md:text-[20px] lg:text-[22px]">
-        {title}
-      </span>
-    </div>
-  );
-}
-
 export default function Categories({ landingType = "freelancer" }) {
-  const data = landingType === "business" ? CONTENT.business : CONTENT.freelancer;
-  const navigate = useNavigate();
-
-  const handleCTA = () => {
-    navigate(landingType === "freelancer" ? "/login/freelancer" : "/login/business");
-  };
+  const data = content[landingType] || content.freelancer;
+  const { heading, sub, items, footer } = data;
 
   return (
-    <section className="bg-white py-0">
-      <div className="max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-[78px]">
-        <div
-          className="
-            rounded-[34px] border border-[#82D6FF] bg-[#F8FDFF]
-            px-7 py-9 md:px-10 md:py-10 lg:px-10 lg:py-12
-            grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]
-            gap-10 lg:gap-8 items-center
-          "
-        >
-          {/* LEFT */}
-          <div className="text-center lg:text-left">
-            <h2
-              className="
-                font-[500] text-[#111] leading-[1.08]
-                text-[30px] sm:text-[36px] lg:text-[48px]
-              "
-            >
-              {data.heading}
-            </h2>
-            <p className="mt-5 text-[#555] text-[18px] md:text-[20px] lg:text-[22px]">
-              {data.subtitle}
-            </p>
-            <button
-              onClick={handleCTA}
-              className="
-                mt-8 h-[54px] lg:h-[58px] px-8 lg:px-9
-                rounded-full bg-[#18B9F6] text-white
-                text-[16px] lg:text-[18px] font-medium
-                hover:bg-[#0FAAE7] transition-all duration-300
-              "
-            >
-              {data.button}
-            </button>
-          </div>
+    <section className="bg-white py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+      <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
+        <div className="overflow-hidden rounded-[22px] border border-[#cfe6f5] bg-[#f5fcff]">
+        {/* Body */}
+        <div className="px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
+          {/* Heading */}
+          <h2 className="
+          max-w-[840px]
+            font-semibold
+            text-black
+            leading-8
+            lg:leading-[1.28]
+            text-[32px] sm:text-[40px] lg:text-[48px]">
+            {heading.before}
+            <span className="font-serif font-[300] italic text-[#12b3ef]">
+              {heading.accent}
+            </span>
+            {heading.after}
+          </h2>
 
-          {/* RIGHT */}
-          <div
-            className="
-              grid grid-cols-1 sm:grid-cols-2
-              gap-y-6 lg:gap-y-7 gap-x-8 lg:gap-x-10 items-center
-            "
-          >
-            {data.categories.map((item) => (
-              <CategoryItem key={item.title} icon={item.icon} title={item.title} />
+          {/* Subtext */}
+          <p className="mt-4 max-w-[940px] 2xl:max-w-[1140px] text-[20px] leading-[1.8] text-[#474747] lg:text-[22px]">
+            {sub}
+          </p>
+
+          {/* Items */}
+          <div className="mt-8 space-y-7 lg:mt-10 lg:space-y-18">
+            {items.map(({ Icon, title, desc }, i) => (
+              <div key={i} className="flex items-start gap-4">
+                <div className="flex h-18 w-18 flex-shrink-0 items-center justify-center rounded-[10px] border border-[#78d4f6] bg-[#f8fdff]">
+                  <Icon />
+                </div>
+                <div className="pt-0.5">
+                  <h3 className="text-[17px]  text-[#1b1e24] lg:text-[26px]">
+                    {title}
+                  </h3>
+                  <p className="mt-1 text-[14px] leading-[1.55] text-[#6D7587] lg:text-[19px]">
+                    {desc}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
+        </div>
+
+        {/* Footer strip */}
+        <div className="border-t border-[#cfe6f5] px-6 py-6 sm:px-10 lg:px-14">
+          <p className="text-[15px]  text-[#12b3ef] lg:text-[22px]">
+            {footer.title}
+          </p>
+          <p className="mt-1 font-[300] text-[14px] leading-[1.6] text-[#4b515c] lg:text-[17px]">
+            {footer.lead}
+            <Link
+              to={footer.linkTo}
+              className="font-medium text-[#1b1e24] underline underline-offset-2 hover:text-[#12b3ef]"
+            >
+              {footer.linkText}
+            </Link>
+            {footer.tail}
+          </p>
+        </div>
         </div>
       </div>
     </section>

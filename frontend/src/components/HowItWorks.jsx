@@ -1,40 +1,27 @@
-import stepF1 from "../assets/step1F.png";
-import stepF2 from "../assets/step2F.png";
-import stepF3 from "../assets/step3F.png";
-import stepF4 from "../assets/step4F.png";
-import stepB1 from "../assets/step1B.png";
-import stepB2 from "../assets/step2B.png";
-import stepB3 from "../assets/step3B.png";
-import stepB4 from "../assets/step4B.png";
-
-
-import homeIcon from "../assets/homeicon.png";
+import workF1 from "../assets/workF1.png";
+import workF2 from "../assets/workF2.png";
+import workF3 from "../assets/workF3.png";
+import workB1 from "../assets/step1B.png";
+import workB2 from "../assets/step2B.png";
+import workB3 from "../assets/step3B.png";
 
 const CONTENT = {
   freelancer: {
-    badge: "THE PROCESS",
-    heading: "How It Works for Freelancers",
-    subtitle: "From application to community, refined at every step.",
+    headingLine1: "How Do You Go From SMM Application to",
+    headingLine2Start: "Your ",
+    headingLine2Highlight: "First Freelance Social Media Job",
+    subtitle: "Three steps. No sales calls, no competing on rate.",
 
-    steps: [
-      { image: stepF1 },
-      { image: stepF2 },
-      { image: stepF3 },
-      { image: stepF4 },
-    ],
+    steps: [{ image: workF1 }, { image: workF2 }, { image: workF3 }],
   },
 
   business: {
-    badge: "THE PROCESS",
-    heading: "How It Works for Businesses",
-    subtitle: "From first ask to final delivery, handled.",
+    headingLine1: "How Do You Go From Job Post to",
+    headingLine2Start: "Your ",
+    headingLine2Highlight: "First Reliable Social Media Hire",
+    subtitle: "Three steps. No sales calls, no competing on rate.",
 
-    steps: [
-      { image: stepB1 },
-      { image: stepB2 },
-      { image: stepB3 },
-      { image: stepB4 },
-    ],
+    steps: [{ image: workB1 }, { image: workB2 }, { image: workB3 }],
   },
 };
 
@@ -59,151 +46,44 @@ function StepCard({ image }) {
   );
 }
 
-export default function HowItWorks({
-  landingType = "freelancer",
-}) {
-  const data =
-    landingType === "business"
-      ? CONTENT.business
-      : CONTENT.freelancer;
+export default function HowItWorks({ landingType = "freelancer" }) {
+  const data = landingType === "business" ? CONTENT.business : CONTENT.freelancer;
 
   return (
-    <section className="bg-white py-20 lg:py-28">
-
+    <section className="bg-white py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
-
-        {/* Badge */}
-
-        <div className="flex justify-center">
-
-          <div
-            className="
-              flex
-              items-center
-              gap-3
-
-              rounded-full
-
-              border
-              border-[#19B8F5]
-
-              px-5
-              py-2
-            "
-          >
-            <div className="w-3 h-3 rounded-full bg-[#19B8F5]" />
-
-            <span
-              className="
-                text-[14px]
-                md:text-[15px]
-
-                tracking-wide
-
-                font-medium
-
-                text-[#111]
-              "
-            >
-              {data.badge}
-            </span>
-
-          </div>
-
-        </div>
-
         {/* Heading */}
-
         <h2
           className="
-            mt-7
-
             text-center
-
-            font-[500]
-
+            font-semibold
             text-black
             leading-8
-
-            lg:leading-[1.08]
-
-            text-[32px] sm:text-[40px] lg:text-[52px]
+            lg:leading-[1.28]
+            text-[32px] sm:text-[40px] lg:text-[48px]
           "
         >
-          {data.heading}
+          <span className="block">{data.headingLine1}</span>
+          <span className="block">
+            {data.headingLine2Start}
+            <span className="text-sky-500">{data.headingLine2Highlight}</span>
+            <span className="text-black">?</span>
+          </span>
         </h2>
 
         {/* Subtitle */}
+        <p
+          className="
+            mt-4
+            text-center
+            text-[16px] sm:text-[22px]
+            text-[#555]
+          "
+        >
+          {data.subtitle}
+        </p>
 
-
-       <p
-  className="
-    mt-5
-
-    flex
-    flex-wrap
-    items-center
-    justify-center
-    gap-1
-    leading-[1]
-    lg:leading-[0.8]
-            text-[18px] sm:text-[20px]
-
-    text-center
-
-    text-[#555]
-  "
->
-  {landingType === "freelancer" ? (
-    <>
-      <span>From</span>
-
-      <img
-        src={homeIcon}
-        alt="home"
-        className="
-          w-4
-          h-4
-
-          md:w-4
-          md:h-4
-
-          lg:w-5
-          lg:h-5
-
-          object-contain
-        "
-      />
-
-      <span>application to community, refined at every step.</span>
-    </>
-  ) : (
-    <>
-      <span>From</span>
-
-      <img
-        src={homeIcon}
-        alt="home"
-        className="
-          w-4
-          h-4
-
-          md:w-4
-          md:h-4
-
-          lg:w-5
-          lg:h-5
-
-          object-contain
-        "
-      />
-
-      <span>project request to managed delivery.</span>
-    </>
-  )}
-</p>
-                {/* Steps */}
-
+        {/* Steps */}
         <div
           className="
             mt-10
@@ -211,8 +91,7 @@ export default function HowItWorks({
 
             grid
             grid-cols-1
-            md:grid-cols-2
-            xl:grid-cols-4
+            md:grid-cols-3
 
             gap-5
             lg:gap-8
@@ -221,15 +100,10 @@ export default function HowItWorks({
           "
         >
           {data.steps.map((step, index) => (
-            <StepCard
-              key={index}
-              image={step.image}
-            />
+            <StepCard key={index} image={step.image} />
           ))}
         </div>
-
       </div>
-
     </section>
   );
 }
