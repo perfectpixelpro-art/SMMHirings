@@ -121,7 +121,7 @@ export default function AIInterview() {
           </div>
 
           {/* RIGHT — animated orb with floating chips */}
-          <div className="relative flex items-center justify-center min-h-[380px] lg:min-h-[520px] order-first lg:order-last">
+          <div className="relative hidden lg:flex items-center justify-center lg:min-h-[520px] order-first lg:order-last">
             <img src={aiOrb} alt="AI voice interview" className="w-[86%] max-w-[520px] select-none" style={{ animation: "orbFloat 6s ease-in-out infinite" }} />
 
             <Chip className="top-[16%] right-[6%]">✦ AI Powered</Chip>
@@ -150,7 +150,7 @@ export default function AIInterview() {
 // Floating label chip over the orb.
 const Chip = ({ children, className = "" }) => (
   <div
-    className={`absolute text-[13px] font-semibold text-gray-700 bg-white rounded-xl px-3.5 py-2 flex items-center gap-1.5 ${className}`}
+    className={`absolute text-[13px] font-semibold text-gray-700 bg-white rounded-xl px-3.5 py-2 hidden sm:flex items-center gap-1.5 ${className}`}
     style={{ boxShadow: "0 8px 24px rgba(13,38,59,0.12)", border: "1px solid #f1f5f9" }}
   >
     {children}
