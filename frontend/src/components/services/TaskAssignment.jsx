@@ -1,107 +1,125 @@
-const TaskAssignment = () => {
-  const items = [
-    "A full description of what is required",
-    "The payment amount for that specific task",
-    "The deliverable format and quality standard expected",
-    "The deadline for submission",
-  ];
+import { Link } from "react-router-dom";
 
+const items = [
+  {
+    title: "One clear specialty.",
+    desc: 'Generalist profiles are harder to match. "I do social media" gets ignored. "I edit short-form video for DTC brands" gets you into the right queue.',
+  },
+  {
+    title: "Relevant samples.",
+    desc: "Not your best work overall, your best work in the specialty you are applying under. A strong logo will not help a copywriting application.",
+  },
+  {
+    title: "Platform experience.",
+    desc: "Name the platforms you have actually worked in. Vague answers slow down verification.",
+  },
+  {
+    title: "Results where you have them.",
+    desc: "Engagement growth, retention numbers, turnaround times, anything that shows the work worked.",
+  },
+  {
+    title: "Honest availability.",
+    desc: "Overcommitting on your profile just means declining briefs later.",
+  },
+];
+
+const ready = [
+  "Updated resume",
+  "Samples specific to your specialty",
+  "A clear list of what you do",
+  "Realistic availability",
+  "One lane, not five",
+];
+
+function CheckMini() {
   return (
-    <section className="w-full px-6 lg:px-[78px] py-14">
+    <span className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-[#12b3ef]">
+      <svg viewBox="0 0 24 24" className="h-2.5 w-2.5" fill="none">
+        <path d="M5 12.5l4 4 10-10" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
 
-      {/* Top */}
-      <div>
-        <h2 className="text-[42px] sm:text-[50px] lg:text-[58px] leading-[1.1] font-[500] tracking-[-2px] text-black">
-          Task Assignment
-        </h2>
+const TaskAssignment = () => {
+  return (
+    <section className="bg-white py-10 sm:py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+      <div className="mx-auto max-w-[1700px] px-5 md:px-10 lg:px-[78px]">
+        {/* Two-column */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* Left */}
+          <div className="lg:sticky lg:top-24 lg:self-start">
+           
+            <h2 className="mt-3 font-semibold leading-[1.12] tracking-[-0.02em] text-[#111111] text-[30px] sm:text-[40px] lg:text-[48px]">
+              What Makes a{" "}
+              <span className="text-[#12b3ef]">Strong Freelancer Profile</span>?
+            </h2>
+            <p className="mt-5 max-w-[440px] text-[15px] leading-[1.7] text-[#5b6068] sm:text-[16px] lg:text-[17px]">
+              A thin profile gets thin results. Here is what moves the needle
+              before you apply for marketing freelancer jobs.
+            </p>
+          </div>
 
-        <p className="mt-4 text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.5] text-gray-400 font-normal">
-          Every task is clear. Every payment is protected.
-        </p>
+          {/* Right timeline */}
+          <div className="relative">
+            {/* connecting line */}
+            <span className="pointer-events-none absolute left-[19px] top-3 bottom-6 w-[2px] bg-gradient-to-b from-[#cdeafb] via-[#cdeafb] to-transparent" />
 
-        <p className="mt-6 text-[16px] sm:text-[17px] lg:text-[20px] leading-[1.8] font-[300] text-gray-700">
-          Once a freelancer is part of the SMM Hiring community, the process of
-          receiving work and getting paid follows a structured, transparent
-          cycle. There are no surprises, no chasing invoices, and no ambiguity
-          around what is owed and when.
-        </p>
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 my-12"></div>
-
-      {/* How Tasks Are Assigned */}
-      <div>
-        <h3 className="text-[36px] sm:text-[44px] lg:text-[52px] leading-[1.1] font-[500] tracking-[-1.5px] text-black">
-          How Tasks Are Assigned
-        </h3>
-
-        <p className="mt-6 text-[16px] sm:text-[17px] lg:text-[20px] leading-[1.8] font-[300] text-gray-700">
-          Tasks are not distributed randomly. Every project that enters the
-          platform is reviewed internally and then matched to the freelancer
-          whose skills, category, and past performance make them the strongest
-          fit for that specific brief. The freelancer receives a clear task
-          brief that includes:
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-          {items.map((item) => (
-            <div
-              key={item}
-              className="flex items-center gap-3 rounded-2xl border border-sky-300 px-5 py-4"
-              style={{ backgroundColor: "#f9fdff" }}
-            >
-              <div className="w-3.5 h-3.5 rounded-full bg-sky-400 flex-shrink-0"></div>
-              <p className="text-[16px] sm:text-[17px] font-[300] lg:text-[22px] leading-[1.5] text-gray-900">
-                {item}
-              </p>
+            <div className="space-y-8 lg:space-y-9">
+              {items.map((item, i) => (
+                <div key={i} className="group relative pl-14">
+                  <span className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#19BAF8] to-[#0f97dc] text-[14px] font-bold text-white shadow-[0_6px_16px_rgba(18,179,239,0.35)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-[18px] font-[500] tracking-[-0.01em] text-[#12131a] sm:text-[20px] lg:text-[21px]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 text-[15px] leading-[1.65] text-[#5b6068] sm:text-[16px] lg:text-[17px]">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        <p className="mt-10 font-[300] text-[16px] sm:text-[17px] lg:text-[20px] leading-[1.9] text-gray-700">
-          The freelancer reviews the brief and confirms acceptance before work
-          begins. Nothing starts without clarity on both sides.
-        </p>
-      </div>
+        {/* Blue premium band */}
+        <div className="relative mt-10 overflow-hidden rounded-[22px] bg-gradient-to-r from-[#19BAF8] to-[#0f8fd4] px-6 py-6 shadow-[0_22px_50px_-26px_rgba(18,179,239,0.55)] sm:px-9 lg:mt-14 lg:px-12 lg:py-7">
+          {/* glow */}
+          <div className="pointer-events-none absolute -top-16 right-10 h-40 w-[360px] rounded-full bg-white opacity-15 blur-[80px]" />
 
-      {/* Divider */}
-      <div className="border-t border-gray-200 my-12"></div>
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            {/* Left: heading + chips */}
+            <div className="min-w-0">
+              <h3 className="text-[18px] font-semibold tracking-[-0.01em] text-white sm:text-[21px] lg:text-[23px]">
+                Before you apply, have this ready
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {ready.map((chip, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.14] px-3.5 py-1.5 text-[13px] font-medium text-white ring-1 ring-white/25 backdrop-blur-sm lg:text-[14px]"
+                  >
+                    <CheckMini />
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-      {/* How Work Is Submitted */}
-      <div>
-        <h3 className="text-[36px] sm:text-[44px] lg:text-[52px] leading-[1.1] font-[500] tracking-[-1.5px] text-black mb-8">
-          How Work Is Submitted
-        </h3>
-
-        <div
-          className="w-full rounded-2xl border border-sky-300 px-7 sm:px-10 py-8 sm:py-10"
-          style={{ backgroundColor: "#f9fdff" }}
-        >
-          <p className="
-              text-[#555555]
-
-              font-[250]
-
-              text-[20px]
-              sm:text-[28px]
-              lg:text-[28px]
-
-              leading-[2]
-
-              tracking-[0.03em]
-            ">
-            Once the task is complete, the deliverable is submitted through the
-            platform for internal review. This review stage checks that the work
-            meets the brief requirements and the platform's quality standard
-            before it is passed to the client. If minor adjustments are needed,
-            the freelancer is notified with clear, specific feedback so the work
-            can be refined and resubmitted promptly.
-          </p>
+            {/* Right: CTA */}
+            <Link
+              to="/login/freelancer"
+              className="inline-flex flex-shrink-0 items-center gap-2 self-start rounded-full bg-white px-6 py-3 text-[14px] font-semibold text-[#0f8fd4] transition hover:bg-[#eaf7ff] lg:self-auto lg:text-[15px]"
+            >
+              Apply as a Freelancer
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
-
-      <div className="border-t border-gray-200 mt-12"></div>
     </section>
   );
 };

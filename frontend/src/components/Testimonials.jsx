@@ -1,12 +1,18 @@
+import { useRef, useLayoutEffect } from "react";
 import man1 from "../assets/man1.png";
 import man2 from "../assets/man2.png";
 import man3 from "../assets/man3.png";
+import man4 from "../assets/man4.png";
+import man5 from "../assets/man5.png";
+import man6 from "../assets/man6.png";
 import leftShadow from "../assets/leftShadow.png";
 import rightShadow from "../assets/rightShadow.png";
 
 /* Testimonials row. Content switches on landingType.
    Freelancer copy is final. Business copy is placeholder to swap later.
-   Center card sits centered; side cards peek and clip at the edges.
+   Cards move continuously (marquee) with no break. The cards are
+   duplicated to fill the loop; card SIZES are unchanged (same width
+   classes and same padded container as before).
    The left/right fade is done with overlay shadow images (not CSS opacity). */
 
 const content = {
@@ -47,30 +53,30 @@ const content = {
     heading: {
       line1a: "What Do Businesses Say About ",
       line1b: "Hiring",
-      line2a: "Social Media Talent",
-      line2b: " on SMM Hiring?",
+      line2a: "Through",
+      line2b: " SMM Hiring?",
     },
     items: [
       {
-        avatar: man1,
-        name: "Alicia R.",
-        role: "Restaurant Owner",
+        avatar: man6,
+        name: "Priya M.",
+        role: "Marketing Lead, DTC Skincare Brand",
         quote:
-          "I posted one brief and had matched, screened applicants the same week. No sifting through hundreds of cold proposals.",
+          "We spent six weeks trying to hire a video editor through our usual channels. On SMM Hiring, the shortlist came back in three days and we hired one of the first three we met.",
       },
       {
-        avatar: man2,
-        name: "James P.",
-        role: "Agency Founder",
+        avatar: man5,
+        name: "Daniel R.",
+        role: "Founder, B2B SaaS",
         quote:
-          "Scope is set before anyone applies, so the people I review already understand the job. Hiring went from weeks to days.",
+          "The screening is the whole point. Every candidate I met was actually a fit. I didn't waste a single interview on someone who couldn't do the work.",
       },
       {
-        avatar: man3,
-        name: "Nadia H.",
-        role: "Med Spa Director",
+        avatar: man4,
+        name: "Alicia T.",
+        role: "E-commerce Owner",
         quote:
-          "Everyone here does social media, so I'm not wading through unrelated freelancers. The shortlist actually fits.",
+          "Cheaper than an agency retainer and I got a person who actually knew our brand voice by week two. That doesn't happen with an account manager sitting between us.",
       },
     ],
   },
@@ -103,8 +109,55 @@ export default function Testimonials({ landingType = "freelancer" }) {
   const data = content[landingType] || content.freelancer;
   const { heading, items } = data;
 
+  // Render TWO identical halves. Sizes stay identical to the original
+  // because the row still lives inside the same padded container and the
+  // card wrappers keep the same width classes. We loop by translating the
+  // track by exactly one half's measured width, so the seam is invisible.
+  const half = [...items, ...items]; // duplicate so a half fills wide screens
+  const marqueeItems = [...half, ...half];
+
+  const trackRef = useRef(null);
+  const animRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) return;
+
+    const start = () => {
+      if (animRef.current) animRef.current.cancel();
+      const half = track.scrollWidth / 2; // width of one identical half, in px
+      if (!half) return;
+      // pixels-per-second — tweak to taste (lower = slower)
+      const speed = 60;
+      const duration = (half / speed) * 1000;
+      animRef.current = track.animate(
+        [
+          { transform: "translateX(0px)" },
+          { transform: `translateX(-${half}px)` },
+        ],
+        { duration, iterations: Infinity, easing: "linear" }
+      );
+    };
+
+    start();
+    const onResize = () => start();
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (animRef.current) animRef.current.cancel();
+    };
+  }, [landingType]);
+
+  const pause = () => animRef.current && animRef.current.pause();
+  const play = () => animRef.current && animRef.current.play();
+
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="bg-white py-10 sm:py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
         {/* Heading */}
         <h2
@@ -127,11 +180,16 @@ export default function Testimonials({ landingType = "freelancer" }) {
           </span>
         </h2>
 
-        {/* Cards row — center centered, side cards peek and clip.
-            Fade at the edges comes from overlay shadow images. */}
+        {/* Cards row — continuous marquee. Sizes unchanged (same container,
+            same width classes). Fade at the edges comes from overlay images. */}
         <div className="relative mt-10 overflow-hidden lg:mt-14">
-          <div className="flex items-stretch justify-center gap-6 py-2">
-            {items.map((item, i) => (
+          <div
+            ref={trackRef}
+            onMouseEnter={pause}
+            onMouseLeave={play}
+            className="flex w-full items-stretch gap-6 py-2"
+          >
+            {marqueeItems.map((item, i) => (
               <div
                 key={i}
                 className="w-[75%] flex-shrink-0 sm:w-[62%] lg:w-[42%] xl:w-[38%] 2xl:w-[34%]"

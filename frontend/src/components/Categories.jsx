@@ -17,8 +17,45 @@ const IconVideo = () => (
 );
 const IconDesign = () => (
   <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8">
-    <path d="M14 4l6 6L9 21H3v-6L14 4z" stroke="#12b3ef" strokeWidth="1.7" strokeLinejoin="round" />
-    <path d="M12.5 5.5l6 6" stroke="#12b3ef" strokeWidth="1.7" />
+    {/* Pencil body */}
+    <path
+      d="M8.2 17.8L14.8 6.3L18.2 8.3L11.6 19.8L8.2 17.8Z"
+      stroke="#12b3ef"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+    />
+
+    {/* Sharp wooden tip */}
+    <path
+      d="M8.2 17.8L6.8 21L11.6 19.8"
+      stroke="#12b3ef"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+    />
+
+    {/* Graphite point */}
+    <path
+      d="M6.8 21L8.2 20.65"
+      stroke="#12b3ef"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+    />
+
+    {/* Pencil top */}
+    <path
+      d="M14.8 6.3L16.2 4L19.6 6L18.2 8.3"
+      stroke="#12b3ef"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+    />
+
+    {/* Pencil detail */}
+    <path
+      d="M13.8 8.1L17.2 10.1"
+      stroke="#12b3ef"
+      strokeWidth="1.3"
+      strokeLinecap="round"
+    />
   </svg>
 );
 const IconGrowth = () => (
@@ -27,6 +64,10 @@ const IconGrowth = () => (
     <path d="M15 8h4v4" stroke="#12b3ef" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+// Shared style for inline links inside item descriptions
+const descLink =
+  "text-inherit underline underline-offset-2 hover:text-[#12b3ef]";
 
 const content = {
   freelancer: {
@@ -67,52 +108,73 @@ const content = {
     },
   },
 
-  // Placeholder business copy, written to be swapped later
   business: {
     heading: {
-      before: "What Types of ",
-      accent: "Social Media Talent",
-      after: " Can You Hire?",
+      before: "What Roles Can ",
+      accent: "You Hire Through",
+      after: " SMM Hiring?",
     },
-    sub: "Post one brief, pick the specialization you need, and start reviewing applicants who actually do that kind of social media work.",
+    sub: "Post the role once, tell us the spec, and we'll match you to candidates in that specialization. Roles we hire for:",
     items: [
       {
         Icon: IconWindow,
         title: "Content & Copy",
-        desc: "Social Media Managers, Content Writers & Copywriters, Community Managers, Analytics & Reporting",
+        desc: (
+          <>
+            Hire Social Media Manager,{" "}
+            <Link
+              to="/business-services/hire-content-writer-copywriter/"
+              className={descLink}
+            >
+              Hire Content Writers & Copywriters
+            </Link>
+            , Hire Community Manager, Hire Marketing Analytics Expert
+          </>
+        ),
       },
       {
         Icon: IconVideo,
         title: "Video & Audio",
-        desc: "Video Editors, Short-Form Video Creators, Podcast Producers, Voice Over & Audio Talent",
+        desc: "Hire Video Editor, Hire Short Form Video Editor, Hire Podcast Producer, Hire Voice Over Artist",
       },
       {
         Icon: IconDesign,
         title: "Design & Development",
-        desc: "Graphic Designers & Brand Designers, Web Designers & Developers, App Designers & Developers",
+        desc: "Hire Graphic Designer, Hire Web Designer & Developer, Hire App Developer",
       },
       {
         Icon: IconGrowth,
         title: "Growth & Strategy",
-        desc: "Paid Social & Ads Managers, Consultants & Auditors",
+        desc: (
+          <>
+            <Link
+              to="/business-services/hire-paid-social-ads-expert/"
+              className={descLink}
+            >
+              Hire Paid Social Ads Expert
+            </Link>
+            , Hire Marketing Consultant
+          </>
+        ),
       },
     ],
+    note: "Not sure which role fits the work? Post it as-is and we'll help define it.",
     footer: {
-      title: "Looking for work instead?",
-      lead: "Head over to the Freelancer side to ",
-      linkText: "Find Social Media Jobs",
-      linkTo: "/freelance-social-media-jobs/",
-      tail: " or browse open roles.",
+      title: "Looking to freelance instead?",
+      lead: "Head over to the Freelancer side to Apply as a Freelancer",
+      linkText: "",
+      linkTo: "",
+      tail: "",
     },
   },
 };
 
 export default function Categories({ landingType = "freelancer" }) {
   const data = content[landingType] || content.freelancer;
-  const { heading, sub, items, footer } = data;
+  const { heading, sub, items, note, footer } = data;
 
   return (
-    <section className="bg-white py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="bg-white py-15 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
         <div className="overflow-hidden rounded-[22px] border border-[#cfe6f5] bg-[#f5fcff]">
         {/* Body */}
@@ -126,14 +188,14 @@ export default function Categories({ landingType = "freelancer" }) {
             lg:leading-[1.28]
             text-[32px] sm:text-[40px] lg:text-[48px]">
             {heading.before}
-            <span className="font-serif font-[300] italic text-[#12b3ef]">
+            <span className=" font-semibold  text-[#12b3ef]">
               {heading.accent}
             </span>
             {heading.after}
           </h2>
 
           {/* Subtext */}
-          <p className="mt-4 max-w-[940px] 2xl:max-w-[1140px] text-[20px] leading-[1.8] text-[#474747] lg:text-[22px]">
+          <p className="mt-4 max-w-[900px] 2xl:max-w-[1140px] text-[20px] leading-[1.8] text-[#474747] lg:text-[20px]">
             {sub}
           </p>
 
@@ -145,16 +207,23 @@ export default function Categories({ landingType = "freelancer" }) {
                   <Icon />
                 </div>
                 <div className="pt-0.5">
-                  <h3 className="text-[17px]  text-[#1b1e24] lg:text-[26px]">
+                  <h3 className="text-[17px]  text-[#1b1e24] lg:text-[24px]">
                     {title}
                   </h3>
-                  <p className="mt-1 text-[14px] leading-[1.55] text-[#6D7587] lg:text-[19px]">
+                  <p className="mt-1 text-[14px] leading-[1.55] text-[#6D7587] lg:text-[18px]">
                     {desc}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Optional note (business only) */}
+          {note && (
+            <p className="mt-8 text-[14px] leading-[1.6] text-[#6D7587] lg:mt-10 lg:text-[18px]">
+              {note}
+            </p>
+          )}
         </div>
 
         {/* Footer strip */}
@@ -164,12 +233,14 @@ export default function Categories({ landingType = "freelancer" }) {
           </p>
           <p className="mt-1 font-[300] text-[14px] leading-[1.6] text-[#4b515c] lg:text-[17px]">
             {footer.lead}
-            <Link
-              to={footer.linkTo}
-              className="font-medium text-[#1b1e24] underline underline-offset-2 hover:text-[#12b3ef]"
-            >
-              {footer.linkText}
-            </Link>
+            {footer.linkText && (
+              <Link
+                to={footer.linkTo}
+                className="font-medium text-[#1b1e24] underline underline-offset-2 hover:text-[#12b3ef]"
+              >
+                {footer.linkText}
+              </Link>
+            )}
             {footer.tail}
           </p>
         </div>

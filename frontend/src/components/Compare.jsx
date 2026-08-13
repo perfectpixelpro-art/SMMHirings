@@ -53,7 +53,7 @@ export default function Compare({ landingType = "freelancer" }) {
   const { heading, colA, colB, rows, caption } = data;
 
   return (
-    <section className="bg-white py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="bg-white py-4 lg:py-15 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
         {/* Heading */}
         <h2
@@ -75,7 +75,7 @@ export default function Compare({ landingType = "freelancer" }) {
         {/* Table card */}
         <div className="mt-8 lg:mt-10 rounded-[16px] lg:rounded-[22px] border border-[#12b3ef] bg-white">
           {/* Header band — full width, flush to card sides, taller */}
-          <div className="grid grid-cols-[1.3fr_1fr_1fr] rounded-t-[16px] lg:rounded-t-[22px] rounded-b-[16px] lg:rounded-b-[18px] border border-[#12b3ef] bg-[#f4fbff]">
+          <div className="grid grid-cols-3 rounded-t-[16px] lg:rounded-t-[22px] rounded-b-[16px] lg:rounded-b-[18px] border border-[#12b3ef] bg-[#f4fbff]">
             <div />
             <div className="px-2 py-5 text-center text-[13px] font-[500] text-black sm:text-[15px] lg:py-7 lg:text-[20px]">
               {colA}
@@ -90,7 +90,7 @@ export default function Compare({ landingType = "freelancer" }) {
             {rows.map((row, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-[1.3fr_1fr_1fr] items-center ${
+                className={`grid grid-cols-3 items-center ${
                   i !== rows.length - 1 ? "border-b border-[#e3e5e8]" : ""
                 }`}
               >

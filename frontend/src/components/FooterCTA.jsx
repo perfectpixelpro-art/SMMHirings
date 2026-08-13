@@ -2,31 +2,34 @@ import { Link } from "react-router-dom";
 import bgFotter from "../assets/bgFotter.png";
 
 /* Bottom CTA banner. Content switches on landingType.
-   Freelancer copy is final. Business copy is placeholder to swap later.
    The bottom pill flips the landing type via setLandingType. */
 
 const content = {
   freelancer: {
-    line1a: "When Execution Is ",
-    accent: "Controlled,",
-    line2: "The Output Becomes Reliable.",
-    sub: "Complete your smm application once, get matched to remote social media jobs in your lane, and get to work on things you're actually paid for.",
-    ctaText: "Apply to SMM Hiring",
+    line1a: "Ready to Apply for Freelance Social Media Jobs",
+    accent: "",
+    line2: (
+      <>
+        and Stop Pitching{" "}
+        <span className="font-bold text-[#35bdf2]">for Good?</span>
+      </>
+    ),
+    sub: "Apply for SMM jobs once, get matched to remote social media jobs in your lane, and get to work on things you're actually paid for.",
+    ctaText: "Apply as a Freelancer",
     ctaHref: "/freelancer/apply",
     note: "Free to apply. No subscription. Response within 3 business days.",
     pill: "Looking to hire freelancers instead? Switch to Business to hire social media freelancers on demand.",
     switchTo: "business",
   },
 
-  // Placeholder business copy, written to be swapped later
   business: {
-    line1a: "When Hiring Is ",
-    accent: "Handled,",
-    line2: "The Work Just Gets Done.",
-    sub: "Post one brief once, get matched to pre-screened social media talent in your niche, and hand off the work with scope set up front.",
-    ctaText: "Post a Job",
+    line1a: "Ready to Hire Without the ",
+    accent: "Agency Markup?",
+    line2: "",
+    sub: "Post the role once, review a screened shortlist, and hire a social media manager, a video editor, or the specialist your business actually needs. No cold pitching, no bidding, no team you didn't ask for.",
+    ctaText: "Post a Role",
     ctaHref: "/business/post-job",
-    note: "Free to post. No subscription. Matches within 3 business days.",
+    note: "Free to post. No setup fee. Shortlist in 48 hours.",
     pill: "Looking for social media work instead? Switch to Freelancer to get matched to jobs in your lane.",
     switchTo: "freelancer",
   },
@@ -55,18 +58,18 @@ export default function FooterCTA({ landingType = "freelancer", setLandingType }
     >
       <div className="mx-auto max-w-[1700px] px-6 py-12 text-center sm:px-10 sm:py-16 md:px-10 lg:px-[78px] lg:py-10">
         {/* Heading */}
-        <h2 className="font-bold leading-[1.22] text-white text-[26px] sm:text-[38px] lg:text-[54px]">
+        <h2 className="font-bold leading-[1.22] text-white text-[26px] sm:text-[38px] lg:text-[48px]">
           <span className="block">
             {data.line1a}
-            <span className="font-serif font-normal italic text-[#35bdf2]">
+            <span className="font-bold  text-[#35bdf2]">
               {data.accent}
             </span>
           </span>
-          <span className="block">{data.line2}</span>
+          {data.line2 && <span className="block">{data.line2}</span>}
         </h2>
 
         {/* Subtext */}
-        <p className="mx-auto mt-4 max-w-[520px] text-[13px] leading-[1.7] text-white/90 sm:mt-5 sm:max-w-[700px] sm:text-[15px] lg:text-[18px]">
+        <p className="mx-auto mt-4 max-w-[480px] text-[13px] leading-[1.7] text-white/90 sm:mt-5 sm:max-w-[650px] sm:text-[15px] lg:text-[16px]">
           {data.sub}
         </p>
 
@@ -90,7 +93,7 @@ export default function FooterCTA({ landingType = "freelancer", setLandingType }
           <button
             type="button"
             onClick={handleSwitch}
-            className="mx-auto inline-flex max-w-[85%] items-center justify-center rounded-full border border-white/15 bg-[#102e3a] px-4 py-3 text-center text-[11px] leading-[1.55] text-white transition hover:border-white/30  sm:max-w-[92%] sm:px-5 sm:py-2.5 sm:text-[12px] lg:text-[15px]"
+            className="mx-auto inline-flex max-w-[85%] items-center justify-center rounded-full border border-white/15 bg-[#102e3a] px-4 py-3 text-center text-[11px] leading-[1.55] text-white transition hover:border-white/30  sm:max-w-[92%] sm:px-5 sm:py-2.5 sm:text-[12px] lg:text-[13px]"
           >
             {data.pill}
           </button>

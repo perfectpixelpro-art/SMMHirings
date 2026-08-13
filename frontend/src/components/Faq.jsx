@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-/* FAQ accordion. Content switches on landingType.
-   Freelancer copy is final. Business copy is placeholder to swap later. */
+/* FAQ accordion. Content switches on landingType. */
 
 const content = {
   freelancer: [
@@ -67,39 +66,66 @@ const content = {
     },
   ],
 
-  // Placeholder business copy, written to be swapped later
   business: [
     {
-      q: "How is SMM Hiring different from other hiring platforms?",
-      a: "On a typical marketplace, you post a job and sift through cold proposals yourself. Here, you post one brief and receive matched, pre-screened applicants who already fit the scope you set.",
+      q: "How is SMM Hiring different from a social media management company or agency?",
+      a: "A social media management company sells you a team you didn't ask for. Retainer, account manager, strategist, junior doing the work. SMM Hiring works the other way. You post the role, we send you a screened shortlist, you meet the person who'll actually do the work, and you hire them directly.",
     },
     {
-      q: "Can I hire for a single task or only long projects?",
-      a: "Both. Post a one-off batch of Reels or an ongoing monthly social media management role. You define the scope, and applicants apply against exactly that.",
+      q: "Can I hire just one dedicated social media manager, or do I need a whole team?",
+      a: "One is fine. Most of our business accounts start by trying to hire a dedicated social media manager for a single channel, then expand once they see how it works. The monthly plan controls how many roles you can hire, not how many people we screen for you.",
     },
     {
-      q: "What kinds of talent can I hire?",
-      a: "Social media management, video, copywriting, design, podcast production, web design, paid social, and consulting. If your need falls outside social media, this isn't the right platform.",
+      q: "What roles can I hire through the platform?",
+      a: "Marketing, content, video, design, and growth. You can hire a social media marketer, a content writer, a graphic designer, a paid ads expert, a video editor, and more. The full list of roles is in Section 5 above.",
     },
     {
-      q: "How does applicant screening work?",
-      a: "Every freelancer is reviewed before they can appear in your matches, so the shortlist you see has already cleared our vetting process.",
+      q: "Is this only for hiring on social media?",
+      a: "No. We cover the full social media marketing services stack, but also content writing, video editing, graphic design, web design, app development, podcast production, voice over, and marketing consulting.",
     },
     {
-      q: "Is it free to post a job?",
-      a: "Posting is free. A transparent platform fee applies per hire, shown to you before you commit, never added afterward.",
+      q: "Are the candidates remote?",
+      a: "Yes. Every hire on the platform is a remote social media manager, remote video editor, remote designer, or remote specialist in whatever role you're posting. Location doesn't affect matching. Specialization and fit do.",
     },
     {
-      q: "How fast can I expect matches?",
-      a: "Most briefs surface matched applicants within a few business days, depending on the category and how specific your scope is.",
+      q: "Can I outsource social media management to a single person instead of a team?",
+      a: "Yes. That's actually most of what the platform is used for. If you want to outsource social media management without paying an agency for four people, one hire through SMM Hiring is usually the right shape.",
     },
     {
-      q: "What if the work needs changes?",
-      a: "Revisions are capped up front as part of the agreement. Anything beyond that becomes its own job, scoped and paid separately.",
+      q: "Do I have to interview them, or does SMM Hiring do that too?",
+      a: "We screen and interview every candidate before they reach your inbox. You do the final call to confirm the fit and make the offer. The screening is done. The hire is yours.",
     },
     {
-      q: "What if there's a dispute?",
-      a: "Our team reviews the job details, the deliverable, and the message thread, then rules on it. You're not left to resolve it alone.",
+      q: "How does the pricing work?",
+      a: "Free to post. Free tier gets you 1 hire per month. $20/month gets you 3. $100/month gets you 6 or more. No setup fee, no annual contract, no per-hire commission on top.",
+    },
+    {
+      q: "What if I need to hire a digital marketing expert or a broader marketing role?",
+      a: "Yes. You can hire a digital marketing expert or hire marketing professionals across strategy, growth, paid ads, and analytics through the same platform. Post the role and we'll match you to candidates in that lane.",
+    },
+    {
+      q: "What if the shortlist isn't right?",
+      a: "Tell us and we'll re-send. The plan doesn't count a bad shortlist against your monthly limit. Only actual hires do.",
+    },
+    {
+      q: "How long does it take to get a shortlist after posting?",
+      a: "Around 48 hours for most roles. Complex or niche specializations can take a few days longer if the pool is smaller.",
+    },
+    {
+      q: "What happens after I hire someone?",
+      a: "We track the timeline of the project and check in on both sides. If the fit doesn't hold, we help resolve it or replace the hire within the same month.",
+    },
+    {
+      q: "Is there a contract or minimum term?",
+      a: "No. Month to month. Cancel from your account before the next billing date and nothing else is charged.",
+    },
+    {
+      q: "What if I want to hire a social media expert for a one-off project, not ongoing work?",
+      a: "You can hire a social media expert for a single project through the same platform. The plan tier just controls the maximum number of hires per month, not the length of engagement.",
+    },
+    {
+      q: "Can I post a role I'm not sure how to describe?",
+      a: "Yes. Post what you have and we'll help refine the spec before the shortlist goes out. Most first-time posters go through one round of refinement before the match runs.",
     },
   ],
 };
@@ -123,7 +149,7 @@ export default function Faq({ landingType = "freelancer" }) {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="bg-white py-8 sm:py-20 lg:py-14 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
         {/* Heading */}
         <h2 className="
@@ -149,7 +175,7 @@ export default function Faq({ landingType = "freelancer" }) {
                   aria-expanded={isOpen}
                   className="flex w-full items-start justify-between gap-4 py-5 text-left lg:py-6"
                 >
-                  <span className="text-[16px] 2xl:font-[500]  leading-[1.4] text-[#12131a] lg:text-[24px]">
+                  <span className="text-[16px] 2xl:font-[500]  leading-[1.4] text-[#12131a] lg:text-[20px]">
                     {item.q}
                   </span>
                   <span className="mt-0.5">
@@ -158,7 +184,7 @@ export default function Faq({ landingType = "freelancer" }) {
                 </button>
 
                 {isOpen && (
-                  <p className="-mt-1 pb-6 pr-10 text-[14px] font-[200] 2xl:font-[400] leading-[1.7] text-[#474747] lg:pr-16 lg:text-[20px]">
+                  <p className="-mt-1 pb-6 pr-10 text-[14px] font-[200] 2xl:font-[400] leading-[1.7] text-[#474747] lg:pr-16 lg:text-[17px]">
                     {item.a}
                   </p>
                 )}

@@ -6,6 +6,7 @@ import FreelancerProcess from "../../components/services/FreelancerProcess";
 import FreelancerInfoBox from "../../components/services/FreelancerInfoBox";
 import TaskAssignment from "../../components/services/TaskAssignment";
 import HowPaymentIsReleased from "../../components/services/Howpaymentisreleased";
+import FreelancerTestimonials from "../../components/services/FreelancerTestimonials";
 import FreelancerFAQ from "../../components/services/FreelancerFAQ";
 import Footer from "../../components/Footer";
 
@@ -20,6 +21,7 @@ function FreelancerServices() {
       <FreelancerInfoBox />
       <TaskAssignment />
       <HowPaymentIsReleased/>
+      <FreelancerTestimonials/>
       <FreelancerFAQ/>
       <Footer />
    </main>

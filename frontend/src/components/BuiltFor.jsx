@@ -14,16 +14,16 @@ const content = {
     lead: "Head over to the Business side to ",
     linkText: "Hire Web Designer & Developer",
     linkTo: "/business-services/hire-web-designer-developer/",
-    tail: " or Hire an App Developer.",
+    tail: " or for any other remote social media jobs.",
     worksTitle: "This works if you:",
     works: [
-      "Scope defined befWant steady freelance social media jobs rather than one gig that dries up next monthore you start",
+      "Want steady freelance social media jobs rather than one gig that dries up next month",
       "Would rather hand over finished work than send daily status updates",
       "Only want SMM jobs that match your specialization",
     ],
     skipTitle: "This isn't for you if you:",
     skip: [
-      "Don't have a portfolio yet",
+      "Don't have a portfolio for the SMM Jobs yet",
       "Would rather bid on general marketplace jobs across every category",
       "Prefer a long sales call before starting the actual work",
     ],
@@ -42,15 +42,26 @@ const content = {
     tail: " or browse open roles.",
     worksTitle: "This works if you:",
     works: [
-      "Want briefs scoped before anyone applies, not endless back and forth",
-      "Would rather review matched applicants than sift through cold proposals",
-      "Only want social media talent, not a general marketplace",
+      (
+        <>
+          Want to{" "}
+          <Link
+            to="/business-services/hire-social-media-manager/"
+            className="text-inherit underline underline-offset-2 hover:text-[#12b3ef]"
+          >
+            hire social media manager
+          </Link>
+          , a designer, or a video editor without an agency in the middle
+        </>
+      ),
+      "Need one specialist, not a packaged team",
+      "Would rather review a screened shortlist than sort through forty applicants",
     ],
     skipTitle: "This isn't for you if you:",
     skip: [
-      "Aren't ready to define the deliverable yet",
-      "Would rather post to a broad marketplace across every category",
-      "Prefer long negotiations before the work begins",
+      "Need a full in-house marketing team, not one hire",
+      "Want a long agency onboarding, brand strategy phase, and retainer structure",
+      "Prefer to source candidates yourself from open marketplaces",
     ],
   },
 };
@@ -77,7 +88,7 @@ export default function BuiltFor({ landingType = "freelancer" }) {
   const data = content[landingType] || content.freelancer;
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="bg-white py-10 sm:py-20 lg:py-20 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-0">
           {/* Left column */}
@@ -94,7 +105,7 @@ export default function BuiltFor({ landingType = "freelancer" }) {
             <p className="mt-3 text-[14px] leading-[1.6] text-[#8a9099] font-[300] sm:text-[15px] lg:text-[20px]">
               {data.lead}
               <Link
-                to="/business-services/hire-web-designer-developer/"
+                to={data.linkTo}
                 className="text-[#8a9099] underline underline-offset-2 hover:text-[#12b3ef]"
               >
                 {data.linkText}

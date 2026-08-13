@@ -6,7 +6,7 @@ const CONTENT = {
     titleLine1: "Why Does Applying for Freelance Social",
     titleLine2: "Media Jobs Feels Like a Dead End",
     subtitle:
-      "Most freelancers run into the same five things before they ever get to do the work:",
+      "Most freelancers looking for freelance social media manager jobs, digital marketing work, video editing, or design work run into the same five things before they ever get to do the work:",
     points: [
       {
         text: "Your SMM application goes into a queue and stays there. You submit a proposal for a freelance social media manager job, and unless you happen to hear back, you have no idea if anyone even opened it.",
@@ -23,36 +23,35 @@ const CONTENT = {
         after: ", and the lowest number tends to win even over a stronger portfolio.",
       },
       {
-        text: "You can't always tell who's on the other end. Without screening, you might put real time into a proposal for a job that was never going to pay out in the first place.",
+        text: "You can't always tell who's on the other end. Without screening, you put real time into proposals for jobs that were never going to pay out.",
       },
     ],
-    footer: "The work isn't the problem. Getting to work is.",
+    footer: "Doing the work is easy. Getting to it is the hard part.",
   },
   business: {
-    titleLine1: "Why Does Hiring Freelance Social",
-    titleLine2: "Media Help Feels Like a Dead End",
+    titleLine1: " Why Does Hiring the Right Talent",
+    titleLine2: "Feel Like a Full-Time Job?",
     subtitle:
-      "Most businesses run into the same five things before they ever get the work started:",
+      "Most businesses run into the same five things before they ever get to hire a social media manager or any specialist who actually works out:",
     points: [
       {
-        text: "Your job post disappears into a pile of applicants. You list an opening for a freelance social media manager, and unless you sift through every proposal yourself, you have no idea who's actually a fit.",
+        text: "The inbox fills up with the wrong people. You post a role for a remote social media manager, and forty applicants come in the first week. Ten look decent on paper. Two make it to a screening call, and neither is close to what you needed.",
       },
       {
-        text: "Every search for a freelance social media manager means starting from zero. No hiring platform remembers what your brand needs, so every new opening for social media freelance help begins with the same blank screening process.",
+        text: "Every hire starts from scratch. No agency or social media management company keeps a record of who you tried, what worked, or what didn't. So you rewrite the job post, chase new references, and repeat the whole thing. The role changes. The process doesn't.",
       },
       {
-        text: "The proposal leaves out the parts you actually need. Scope, turnaround, rate, none of it is spelled out, so you're comparing candidates blind and sorting out mismatched expectations only after you've already committed.",
+        text: "The portfolio only shows the highlights. Three polished pieces, no context. You have no idea how they actually work, whether they hit deadlines, or if the client would hire them again.",
       },
       {
-        text: "Price does most of the deciding, not fit. Dozens of freelancers bid on the same",
-        linkText: "remote social media jobs",
-        after: ", and the lowest number tends to win even over a stronger portfolio.",
+        text: "Agencies price a team you didn't ask for. You wanted to outsource social media management to one dedicated social media manager, or bring on a single content writer for a landing page. You got a $4,000-a-month retainer, an account manager, a strategist, and a junior doing the actual work.",
+        
       },
       {
-        text: "You can't always tell who you're hiring. Without verification, you might commit budget to someone who was never going to deliver in the first place.",
+        text: "You can't always tell who's serious. Freelancer marketplaces are full of profiles that look polished until the call. Whether you're trying to hire a social media marketer, hire a digital marketing expert, or hire marketing professionals across a whole account, real hours go into calls with people who were never going to work out.",
       },
     ],
-    footer: "The talent isn't the problem. Finding it is.",
+    footer: "None of this is really about how to hire a social media expert who fits. It's everything that gets in the way of finding one.",
   },
 };
 
@@ -60,7 +59,7 @@ export default function PainPoints({ landingType = "freelancer" }) {
   const data = CONTENT[landingType] ?? CONTENT.freelancer;
 
   return (
-    <section className="bg-white mt-16 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px] py-0 lg:py-0 overflow-hidden">
+    <section className="bg-white mt-8 sm:mt-16 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px] py-0 lg:py-0 overflow-hidden">
       {/* Header */}
       <div className="px-5 sm:px-10 lg:px-[78px]  mb-6 lg:mb-8">
         <h2 className="text-[32px]  sm:text-[40px] leading-9 lg:leading-14 lg:text-[48px] font-semibold text-gray-900  mb-1.5">
@@ -86,7 +85,7 @@ export default function PainPoints({ landingType = "freelancer" }) {
                   aria-hidden="true"
                   className="mt-1 h-4 w-4 sm:h-6 sm:w-6 flex-shrink-0"
                 />
-                <p className="text-[19px] leading-relaxed text-slate-700">
+                <p className="text-[17px] leading-relaxed text-slate-700">
                   {point.text}
                   {point.linkText && (
                     <>

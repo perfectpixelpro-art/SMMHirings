@@ -23,17 +23,15 @@ export default function HomePage() {
       <Navbar landingType={landingType} setLandingType={setLandingType}/>
       <Hero landingType={landingType} setLandingType={setLandingType} />
       <PainPoints landingType={landingType} />
-      {/* <WhyDifferent landingType={landingType}/>
-      <RealWork landingType={landingType} /> */}
+      {/* <RealWork landingType={landingType} /> */}
       <HowItWorks landingType={landingType} />
-       <WhyDifferent landingType={landingType}/>
-       <Categories landingType={landingType} />
-       <Compare landingType={landingType} />
-        <BuiltFor landingType={landingType} />
-        <Testimonials landingType={landingType} />
-        <Faq landingType={landingType} />
-        <FooterCTA landingType={landingType} setLandingType={setLandingType} />
-      {/* <Categories landingType={landingType} /> */}
+      <WhyDifferent landingType={landingType}/>
+      <Categories landingType={landingType} />
+      {/* <Compare landingType={landingType} /> */}
+      <BuiltFor landingType={landingType} />
+      <Testimonials landingType={landingType} />
+      <Faq landingType={landingType} />
+      <FooterCTA landingType={landingType} setLandingType={setLandingType} />
       <Footer/>
     </div>
   );

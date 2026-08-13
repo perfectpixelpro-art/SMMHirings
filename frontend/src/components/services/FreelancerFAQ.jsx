@@ -2,20 +2,64 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Who can apply to join the platform as a freelancer?",
-    a: "The platform is open to skilled professionals across all digital service categories: including Social Media Management, Content Writing, Copywriting, Video Editing, Graphic Design, SEO, Paid Advertising, Web Development, and more. Applicants must have a demonstrable portfolio, a minimum of one year of professional experience in their field, and the ability to deliver work independently within agreed timelines. Students and beginners are encouraged to build their portfolio further before applying.",
+    q: "Who can apply for freelance marketing jobs?",
+    a: "Digital marketing freelancers, social media managers, or anyone looking for freelance marketing opportunities can apply. Social media, digital marketing, paid ads, video editing, and other marketing skills are all welcome. What matters most is having a portfolio that backs up your skills. Job titles matter less than the work you can show.",
   },
   {
-    q: "Is there a cost to join the platform as a freelancer?",
-    a: "No. Joining the platform as a freelancer is completely free. There are no registration fees, subscription charges, or upfront costs of any kind. The platform operates on a commission-based model: a small service fee is deducted from each completed project payment, the details of which are clearly outlined during the onboarding process after approval.",
+    q: "Is this only for social media managers?",
+    a: "No. The platform is open to copywriters, video editors, designers, paid advertising specialists, strategists, and other marketing professionals. Social media managers may apply in higher numbers, but other roles are just as welcome and can be equally in demand.",
   },
   {
-    q: "How are freelancers matched with projects?",
-    a: "Project matching is based on the freelancer's approved profile: their listed skills, category expertise, experience level, availability, and past performance on the platform. Freelancers do not need to bid or apply for individual projects. When a client brief aligns with a freelancer's profile, the project is surfaced for review and the freelancer can choose to accept or decline based on fit and availability.",
+    q: "What if I do not get approved the first time?",
+    a: "You will receive specific feedback rather than a generic rejection. If something falls short, you will know what needs improvement. Many freelancers come back after strengthening their samples and get approved on their second attempt. There is no waiting period between applications.",
   },
   {
-    q: "What happens if a client is not satisfied with the delivered work?",
-    a: "Every project on the platform includes a structured revision process. If a client raises concerns about a deliverable, the freelancer is notified and allowed to address the feedback within the agreed revision scope. The platform's support team mediates in cases where a resolution cannot be reached independently. Freelancers who consistently deliver high-quality work and maintain strong client ratings receive increased project match priority over time.",
+    q: "How long does the whole thing take?",
+    a: "Most applicants hear back within 48 hours of submitting their application. Some applications may be reviewed faster, depending on how busy the review queue is that week.",
+  },
+  {
+    q: "Which freelance marketing jobs are busiest right now?",
+    a: "Short-form video has been consistently in demand, along with paid advertising. Social media management remains steady, while copywriting and design can see demand increase during certain times of the year. Demand can change from month to month.",
+  },
+  {
+    q: "Do I have to take every job I get matched with?",
+    a: "No. Read the brief, see if it works for you as a marketing freelancer, and pass if it does not. There is no pressure to accept every opportunity and no penalty for saying no. Your future matches are not affected.",
+  },
+  {
+    q: "How much experience do I actually need?",
+    a: "Less than you might think. Around eight months of experience with two or three strong, recent samples can be more valuable than years of experience without current work to show. Recency and quality matter more than how long your CV is.",
+  },
+  {
+    q: "Will I actually know what the job is before committing?",
+    a: "Yes. Every brief includes the deliverables, rate, and timeline before you decide whether to accept it. There are no calls just to figure out the scope and no guessing as you go. Everything you need to make a decision is provided upfront.",
+  },
+  {
+    q: "What if I think a deadline on a freelance digital marketing project is going to slip?",
+    a: "Let the client and SMM Hiring know as early as possible. Freelancers who flag potential delays early can work with the team to find a solution. Staying silent and waiting until the deadline creates a much bigger problem, so early communication is always the better approach.",
+  },
+  {
+    q: "Is there a limit on how many remote marketing jobs I can take at once?",
+    a: "There is no fixed limit set by the platform. The real limit is how much work you can take on while still meeting the quality and deadlines expected in each brief. Taking on too much can quickly affect the quality of your work.",
+  },
+  {
+    q: "My skills cross a few different areas. Do I still apply?",
+    a: "Absolutely. Just explain what you actually do in clear, simple language. Your profile is reviewed based on your skills rather than being limited to a single category. Freelancers who combine areas such as content and design or strategy and copywriting can be matched with briefs that fit their skill set.",
+  },
+  {
+    q: "How does payment work on freelance digital marketing projects?",
+    a: "Once the client approves your work, payment is processed through the platform. You do not need to create invoices or chase clients for payment. The process is handled through the platform.",
+  },
+  {
+    q: "Can the same client come back and work with me again?",
+    a: "Yes. Some clients request the same freelancer for future projects, while others start with one project and continue working together. When the first project goes well, repeat work can naturally follow.",
+  },
+  {
+    q: "What if a client tries to add something that was not in the original brief?",
+    a: "Anything outside the original scope is treated as a separate project with its own rate and agreement. Extra work is not quietly added to an existing project, and SMM Hiring helps maintain that boundary when needed.",
+  },
+  {
+    q: "I am not based in the US. Can I still apply for freelance marketing jobs here?",
+    a: "Yes. Social Media Freelancer Jobs are remote, and location is not part of how project matches are made. Freelancers outside the US can apply and be matched in the same way as everyone else.",
   },
 ];
 
