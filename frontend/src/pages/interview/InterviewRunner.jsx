@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { api, getAccessToken } from "../../api/axios";
-import logo from "../../assets/logo.png";
+import NavbarC from "../../components/NavbarC";
+import aiOrbSmall from "../../assets/aiOrbSmall.png";
+import aiWaveform from "../../assets/aiWaveform.png";
 
 const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
 const WS_URL = BACKEND.replace(/^http/, "ws") + "/ws/interview";
@@ -18,6 +20,19 @@ const ScoreBar = ({ label, value }) => (
   </div>
 );
 
+// Render the question with the first three words highlighted in brand blue.
+const renderQuestion = (q) => {
+  const words = (q || "").split(" ");
+  const head = words.slice(0, 3).join(" ");
+  const tail = words.slice(3).join(" ");
+  return (
+    <>
+      <span style={{ color: "#12B3EF" }}>{head}</span>
+      {tail && <span style={{ color: "#6b7280" }}> {tail}</span>}
+    </>
+  );
+};
+
 export default function InterviewRunner({ session, onExit }) {
   const { sessionId, maxQuestions } = session;
   const [question, setQuestion] = useState(session.question);
@@ -28,6 +43,7 @@ export default function InterviewRunner({ session, onExit }) {
   const [answer, setAnswer] = useState("");
   const [error, setError] = useState("");
   const [report, setReport] = useState(null);
+  const [landingType, setLandingType] = useState("freelancer"); // for the shared navbar
 
   const wsRef = useRef(null);
   const recRef = useRef(null);
@@ -157,10 +173,10 @@ export default function InterviewRunner({ session, onExit }) {
   // ---------- Report view ----------
   if (state === "complete") {
     return (
-      <Shell>
+      <Shell landingType={landingType} setLandingType={setLandingType}>
         <div className="max-w-lg mx-auto w-full">
           {report ? (
-            <div className="bg-white rounded-2xl p-6 sm:p-8" style={{ border: "1px solid #eef2f6" }}>
+            <div className="bg-white rounded-2xl p-6 sm:p-8" style={{ border: "1px solid #eef2f6", boxShadow: "0 20px 60px rgba(18,179,239,0.08)" }}>
               <div className="text-center mb-6">
                 <div style={{ fontSize: 40 }}>🏁</div>
                 <h1 className="text-[24px] font-extrabold text-gray-900 mt-2">Interview Complete</h1>
@@ -192,62 +208,121 @@ export default function InterviewRunner({ session, onExit }) {
 
   // ---------- Interview view ----------
   const repeatable = ["idle", "review"].includes(state);
+  const statusLine = {
+    asking: "🔊 Speaking the question…",
+    recording: "🎙 Listening… tap Stop when you're done",
+    transcribing: "Transcribing your answer…",
+    processing: "Thinking…",
+  }[state];
+
   return (
-    <Shell>
-      <div className="max-w-xl mx-auto w-full">
-        <p className="text-center text-[12px] font-semibold uppercase tracking-widest text-gray-400 mb-3">Question {order} of {maxQuestions}</p>
+    <Shell landingType={landingType} setLandingType={setLandingType}>
+      <div className="w-full max-w-[820px] mx-auto">
+        <div
+          className="bg-white rounded-[28px] px-6 sm:px-12 py-10 sm:py-14 text-center"
+          style={{ border: "1px solid #eef2f6", boxShadow: "0 30px 80px rgba(18,179,239,0.10)" }}
+        >
+          {/* Orb */}
+          <img
+            src={aiOrbSmall}
+            alt=""
+            className="mx-auto w-[92px] h-[92px] select-none"
+            style={{ animation: state === "recording" ? "orbPulse 1.4s ease-in-out infinite" : "none" }}
+          />
 
-        <div className="bg-white rounded-2xl p-6 sm:p-8 mb-5 text-center" style={{ border: "1px solid #eef2f6" }}>
-          <div style={{ fontSize: 30, marginBottom: 10 }}>🤖</div>
-          <p className="text-[17px] font-semibold text-gray-900 leading-relaxed">{question}</p>
-          {state === "asking" && <p className="text-[12px] text-gray-400 mt-3">🔊 Speaking the question…</p>}
-          {repeatable && (
-            <button onClick={repeatQuestion} className="mt-3 text-[13px] font-semibold" style={{ background: "none", border: "none", color: "#12B3EF", cursor: "pointer" }}>
-              🔁 Repeat question
-            </button>
-          )}
-        </div>
+          {/* Question counter pill */}
+          <span className="inline-block mt-2 mb-6 text-[13px] font-semibold px-3.5 py-1.5 rounded-full" style={{ background: "#e0f2fe", color: "#12B3EF" }}>
+            Question {order} of {maxQuestions}
+          </span>
 
-        {(answer || live) && (
-          <div className="rounded-xl p-4 mb-5" style={{ background: "#fff", border: "1px solid #eef2f6" }}>
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-400 mb-1">Your answer</p>
-            <p className="text-[14px] text-gray-700">{answer} <span style={{ color: "#9ca3af" }}>{live}</span></p>
-          </div>
-        )}
+          {/* Question */}
+          <h1 className="font-bold text-[26px] sm:text-[34px] leading-[1.25] max-w-[640px] mx-auto">
+            {renderQuestion(question)}
+          </h1>
 
-        {error && <p className="text-red-500 text-[13px] text-center mb-4">{error}</p>}
+          {/* Waveform */}
+          <img
+            src={aiWaveform}
+            alt=""
+            className="mx-auto mt-8 mb-2 w-full max-w-[620px] select-none"
+            style={{ opacity: state === "recording" ? 1 : 0.55, transition: "opacity .3s", animation: state === "recording" ? "wave 1.2s ease-in-out infinite" : "none" }}
+          />
 
-        <div className="flex flex-col items-center">
-          {state === "recording" && (
-            <button onClick={stopRecording} className="text-white font-bold rounded-full flex items-center gap-2" style={{ background: "#dc2626", padding: "14px 32px", border: "none", cursor: "pointer" }}>
-              <span style={{ width: 12, height: 12, background: "#fff", borderRadius: 3, display: "inline-block", animation: "pulse 1s infinite" }} /> Stop
-            </button>
-          )}
+          {statusLine && <p className="text-[13px] text-gray-400 mb-2">{statusLine}</p>}
 
-          {state === "review" && (
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <button onClick={startRecording} className="font-semibold rounded-full" style={{ background: "#fff", color: "#12B3EF", border: "1px solid #12B3EF", padding: "13px 28px", cursor: "pointer" }}>🔁 Re-record</button>
-              <button onClick={submitAnswer} className="text-white font-bold rounded-full" style={{ background: "#12B3EF", padding: "13px 32px", border: "none", cursor: "pointer" }}>✓ Submit Answer</button>
+          {/* Live / reviewed answer */}
+          {(answer || live) && (
+            <div className="rounded-xl p-4 mt-2 mb-2 text-left max-w-[620px] mx-auto" style={{ background: "#f8fafc", border: "1px solid #eef2f6" }}>
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-400 mb-1">Your answer</p>
+              <p className="text-[14px] text-gray-700">{answer} <span style={{ color: "#9ca3af" }}>{live}</span></p>
             </div>
           )}
 
-          {["idle"].includes(state) && (
-            <button onClick={startRecording} className="text-white font-bold rounded-full" style={{ background: "#12B3EF", padding: "16px 40px", fontSize: 15, border: "none", cursor: "pointer" }}>🎙  Record Answer</button>
-          )}
-
-          {["asking", "transcribing", "processing"].includes(state) && (
-            <button disabled className="text-white font-bold rounded-full" style={{ background: "#12B3EF", padding: "16px 40px", fontSize: 15, border: "none", opacity: 0.5, cursor: "not-allowed" }}>
-              {state === "transcribing" ? "Transcribing…" : state === "processing" ? "Thinking…" : "Please wait…"}
+          {error && <p className="text-red-500 text-[13px] mt-3">{error}</p>}
+          {repeatable && (
+            <button onClick={repeatQuestion} className="block mx-auto mt-3 text-[13px] font-semibold" style={{ background: "none", border: "none", color: "#12B3EF", cursor: "pointer" }}>
+              🔁 Repeat question
             </button>
           )}
 
-          <button onClick={onExit} className="mt-4 text-[13px] font-semibold" style={{ background: "none", border: "none", color: "#6b7280", cursor: "pointer" }}>Exit interview</button>
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
+            {state === "idle" && (
+              <PrimaryBtn onClick={startRecording}>🎙 &nbsp;Tap to speak</PrimaryBtn>
+            )}
+            {state === "recording" && (
+              <PrimaryBtn onClick={stopRecording} color="#dc2626">
+                <span style={{ width: 11, height: 11, background: "#fff", borderRadius: 3, display: "inline-block", marginRight: 8, animation: "pulse 1s infinite" }} /> Stop
+              </PrimaryBtn>
+            )}
+            {state === "review" && (
+              <>
+                <PrimaryBtn onClick={submitAnswer}>✓ &nbsp;Submit Answer</PrimaryBtn>
+                <OutlineBtn onClick={startRecording}>🔁 Re-record</OutlineBtn>
+              </>
+            )}
+            {["asking", "transcribing", "processing"].includes(state) && (
+              <PrimaryBtn disabled>
+                {state === "transcribing" ? "Transcribing…" : state === "processing" ? "Thinking…" : "Please wait…"}
+              </PrimaryBtn>
+            )}
+
+            {state !== "review" && <OutlineBtn onClick={onExit}>⤶ Exit Interview</OutlineBtn>}
+          </div>
+          {state === "review" && (
+            <button onClick={onExit} className="mt-4 text-[13px] font-semibold" style={{ background: "none", border: "none", color: "#6b7280", cursor: "pointer" }}>Exit interview</button>
+          )}
         </div>
-        <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}`}</style>
       </div>
+      <style>{`
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+        @keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+        @keyframes wave{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.12)}}
+      `}</style>
     </Shell>
   );
 }
+
+const PrimaryBtn = ({ children, onClick, disabled, color = "#12B3EF" }) => (
+  <button
+    onClick={onClick}
+    disabled={disabled}
+    className="text-white font-bold rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity"
+    style={{ background: color, padding: "14px 30px", fontSize: 15, border: "none", cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.55 : 1, minWidth: 190 }}
+  >
+    {children}
+  </button>
+);
+
+const OutlineBtn = ({ children, onClick }) => (
+  <button
+    onClick={onClick}
+    className="font-semibold rounded-xl hover:bg-gray-50 transition-colors"
+    style={{ background: "#fff", color: "#6b7280", border: "1px solid #e5e7eb", padding: "14px 30px", fontSize: 15, cursor: "pointer", minWidth: 170 }}
+  >
+    {children}
+  </button>
+);
 
 const Spinner = () => (
   <>
@@ -256,11 +331,9 @@ const Spinner = () => (
   </>
 );
 
-const Shell = ({ children }) => (
-  <div className="min-h-screen font-sans flex flex-col" style={{ backgroundColor: "#f0f8fd" }}>
-    <div className="bg-white border-b border-gray-100 px-5 sm:px-10 py-4">
-      <div className="max-w-3xl mx-auto"><img src={logo} alt="SMM Hiring" className="h-7 sm:h-8" /></div>
-    </div>
-    <div className="flex-1 flex items-center justify-center px-5 py-12">{children}</div>
+const Shell = ({ children, landingType, setLandingType }) => (
+  <div className="min-h-screen font-sans relative overflow-hidden" style={{ background: "linear-gradient(180deg,#ffffff 0%,#f0f8fd 100%)" }}>
+    <NavbarC landingType={landingType} setLandingType={setLandingType} />
+    <div className="flex items-center justify-center px-5 pt-[150px] lg:pt-[170px] pb-16">{children}</div>
   </div>
 );
