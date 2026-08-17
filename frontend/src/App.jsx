@@ -11,6 +11,21 @@ import ContactUs from "./pages/ContactUs";
 
 import FreelancerServices from "./pages/services/FreelancerServices";
 
+// Business services (hire pages)
+import HireSocialMediaManager from "./pages/services/businessservices/HireSocialMediaManager";
+import HireContentWritersCopywriters from "./pages/services/businessservices/HireContentWritersCopywriters";
+import HireVideoEditor from "./pages/services/businessservices/HireVideoEditor";
+import HireShortFormVideoEditor from "./pages/services/businessservices/HireShortFormVideoEditor";
+import HirePodcastProducer from "./pages/services/businessservices/HirePodcastProducer";
+import HireGraphicDesigner from "./pages/services/businessservices/HireGraphicDesigner";
+import HireWebDesignerDeveloper from "./pages/services/businessservices/HireWebDesignerDeveloper";
+import HireAppDeveloper from "./pages/services/businessservices/HireAppDeveloper";
+import HireVoiceOverArtist from "./pages/services/businessservices/HireVoiceOverArtist";
+import HirePaidSocialAdsExpert from "./pages/services/businessservices/HirePaidSocialAdsExpert";
+import HireCommunityManager from "./pages/services/businessservices/HireCommunityManager";
+import HireMarketingAnalyticsExpert from "./pages/services/businessservices/HireMarketingAnalyticsExpert";
+import HireMarketingConsultant from "./pages/services/businessservices/HireMarketingConsultant";
+
 // Auth / profile / interview / admin (functional app)
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
@@ -25,20 +40,7 @@ import FreelancerDashboard from "./pages/freelancer/FreelancerDashboard";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
-// Business Services
-import SocialMediaManagement from "./pages/services/SocialMediaManagement";
-import ContentWriting from "./pages/services/ContentWriting";
-import VideoProduction from "./pages/services/VideoProduction";
-import ShortFormVideo from "./pages/services/ShortFormVideo";
-import PodcastProduction from "./pages/services/PodcastProduction";
-import GraphicDesign from "./pages/services/GraphicDesign";
-import WebsiteDesign from "./pages/services/WebsiteDesign";
-import AppDesign from "./pages/services/AppDesign";
-import VoiceOver from "./pages/services/VoiceOver";
-import PaidSocial from "./pages/services/PaidSocial";
-import CommunityManagement from "./pages/services/CommunityManagement";
-import Analytics from "./pages/services/Analytics";
-import Consulting from "./pages/services/Consulting";
+
 
 function App() {
   return (
@@ -55,6 +57,23 @@ function App() {
           path="/remote-marketing-freelance-jobs/"
           element={<FreelancerServices />}
         />
+
+        {/* ========================= */}
+        {/* Business Services (hire pages) */}
+        {/* ========================= */}
+        <Route path="/business-services/hire-social-media-manager/" element={<HireSocialMediaManager />} />
+        <Route path="/business-services/hire-content-writer-copywriter/" element={<HireContentWritersCopywriters />} />
+        <Route path="/business-services/hire-video-editor-producer/" element={<HireVideoEditor />} />
+        <Route path="/business-services/hire-short-form-video-editor/" element={<HireShortFormVideoEditor />} />
+        <Route path="/business-services/hire-podcast-producer-editor/" element={<HirePodcastProducer />} />
+        <Route path="/business-services/hire-graphic-designer/" element={<HireGraphicDesigner />} />
+        <Route path="/business-services/hire-web-designer-developer/" element={<HireWebDesignerDeveloper />} />
+        <Route path="/business-services/hire-app-designer-developer/" element={<HireAppDeveloper />} />
+        <Route path="/business-services/hire-voice-over-artist-audio-producer/" element={<HireVoiceOverArtist />} />
+        <Route path="/business-services/hire-paid-social-ads-expert/" element={<HirePaidSocialAdsExpert />} />
+        <Route path="/business-services/hire-community-manager/" element={<HireCommunityManager />} />
+        <Route path="/business-services/hire-marketing-analytics-expert/" element={<HireMarketingAnalyticsExpert />} />
+        <Route path="/business-services/hire-digital-marketing-consultant/" element={<HireMarketingConsultant />} />
 
         {/* ========================= */}
         {/* Auth (role-aware portals) */}
@@ -80,74 +99,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<RequireAdmin><AdminDashboard /></RequireAdmin>} />
 
-        {/* ========================= */}
-        {/* Business Services */}
-        {/* ========================= */}
-
-        <Route
-          path="/business-services/hire-social-media-manager/"
-          element={<SocialMediaManagement />}
-        />
-
-        <Route
-          path="/business-services/hire-content-writer-copywriter/"
-          element={<ContentWriting />}
-        />
-
-        <Route
-          path="/business-services/hire-video-editor-producer/"
-          element={<VideoProduction />}
-        />
-
-        <Route
-          path="/business-services/hire-short-form-video-editor/"
-          element={<ShortFormVideo />}
-        />
-
-        <Route
-          path="/business-services/hire-podcast-producer-editor/"
-          element={<PodcastProduction />}
-        />
-
-        <Route
-          path="/business-services/hire-graphic-designer/"
-          element={<GraphicDesign />}
-        />
-
-        <Route
-          path="/business-services/hire-web-designer-developer/"
-          element={<WebsiteDesign />}
-        />
-
-        <Route
-          path="/business-services/hire-app-designer-developer/"
-          element={<AppDesign />}
-        />
-
-        <Route
-          path="/business-services/hire-voice-over-artist-audio-producer/"
-          element={<VoiceOver />}
-        />
-
-        <Route
-          path="/business-services/hire-paid-social-ads-expert/"
-          element={<PaidSocial />}
-        />
-
-        <Route
-          path="/business-services/hire-community-manager/"
-          element={<CommunityManagement />}
-        />
-
-        <Route
-          path="/business-services/hire-marketing-analytics-expert/"
-          element={<Analytics />}
-        />
-
-        <Route
-          path="/business-services/hire-digital-marketing-consultant/"
-          element={<Consulting />}
-        />
+        
 
       </Routes>
     </BrowserRouter>
