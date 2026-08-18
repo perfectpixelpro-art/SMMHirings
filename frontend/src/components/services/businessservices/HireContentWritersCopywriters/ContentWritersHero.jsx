@@ -43,7 +43,7 @@ const ContentWritersHero = () => {
       <div className="relative max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
 
         {/* ===== Centered copy ===== */}
-        <div className="mx-auto max-w-5xl mt-20 2xl:mt-10 text-center">
+        <div className="mx-auto max-w-5xl mt-10 2xl:mt-10 text-center">
           <h1 className="mx-auto max-w-4xl  2xl:max-w-5xl text-center text-[30px] sm:text-[42px] lg:text-[52px] 2xl:text-[62px] font-[500] leading-[1.14] tracking-[-1.5px] text-black">
             Hire Content Writers and Copywriters{" "}
             <span style={{ color: ACCENT }}>Matched to Your Needs</span>

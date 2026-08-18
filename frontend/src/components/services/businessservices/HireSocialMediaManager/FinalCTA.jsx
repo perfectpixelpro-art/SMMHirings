@@ -7,7 +7,7 @@ const chips = ["Reviewed shortlist in 48 hours", "No long-term contract", "Hire 
 
 const FinalCTA = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-20 lg:py-10 2xl:py-12 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="relative overflow-hidden bg-white py-6 sm:py-20 lg:py-10 2xl:py-12 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
 
         <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0BA5EC] via-[#0a86c4] to-[#075985] px-6 py-12 text-center sm:rounded-[36px] sm:px-10 sm:py-16 lg:py-10 2xl:py-14">

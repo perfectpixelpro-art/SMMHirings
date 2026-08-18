@@ -286,7 +286,7 @@ const ClosingBanner = () => (
 
 /* ─── Main section ─── */
 const WhoIsThisFor = () => (
-  <section className="relative overflow-hidden bg-white py-12 sm:py-20 lg:py-16 2xl:py-24 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+  <section className="relative overflow-hidden bg-white py-12 sm:py-20 lg:py-12 2xl:py-10 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
     <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
 
       {/* ── Heading ── */}
@@ -325,10 +325,10 @@ const WhoIsThisFor = () => (
       </p>
 
       {/* ── Who hires ── */}
-      <div className="mt-14 sm:mt-20">
-        <h3 className="mt-3 text-[21px] pl-105 2xl:pl-145 font-[600] tracking-[-0.3px] text-gray-900 sm:text-[30px]">
-          Who actually hires through this
-        </h3>
+      <div className="mt-0 sm:mt-20">
+       <h3 className="mt-3 text-[21px] pl-4 mt-15 lg:pl-105 2xl:pl-145 font-[600] tracking-[-0.3px] text-gray-900 sm:text-[30px]">
+  Who actually hires through this
+</h3>
         <AudienceTimeline />
       </div>
 

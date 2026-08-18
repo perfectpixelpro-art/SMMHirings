@@ -36,7 +36,7 @@ const hiringModels = [
 
 const Professional = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#f2f9ff] via-white to-white py-12 sm:py-20 lg:py-16 2xl:py-24 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#f2f9ff] via-white to-white py-2 sm:py-20 lg:py-16 2xl:py-24 sm:px-0 lg:px-[40px] xl:px-[30px] 2xl:px-[90px]">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[78px]">
 
        
