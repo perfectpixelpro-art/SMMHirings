@@ -5,6 +5,7 @@ import Navbar from "../../../components/NavbarC";
 import HireSocialMediaManagerHero from "../../../components/services/businessservices/HireSocialMediaManager/HireSocialMediaManagerHero";
 import Professional from "../../../components/services/businessservices/HireSocialMediaManager/Professional";
 import WorthYourTime from "../../../components/services/businessservices/HireSocialMediaManager/WorthYourTime";
+import ManagedDashboard from "../../../components/services/businessservices/HireSocialMediaManager/ManagedDashboard";
 import CommonQuestions from "../../../components/services/businessservices/HireSocialMediaManager/CommonQuestions";
 import WhatGetsReviewed from "../../../components/services/businessservices/HireSocialMediaManager/WhatGetsReviewed";
 import HowToHire from "../../../components/services/businessservices/HireSocialMediaManager/HowToHire";
@@ -23,6 +24,7 @@ const HireSocialMediaManager = () => {
       <HireSocialMediaManagerHero />
       <Professional/>
       <WorthYourTime/>
+      <ManagedDashboard/>
       <CommonQuestions/>
       <WhatGetsReviewed/>
       <HowToHire/>

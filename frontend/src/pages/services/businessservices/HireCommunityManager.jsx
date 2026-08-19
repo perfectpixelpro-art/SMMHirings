@@ -5,6 +5,7 @@ import Navbar from "../../../components/NavbarC";
 import CommunityManagerHero from "../../../components/services/businessservices/HireCommunityManager/CommunityManagerHero";
 import WhatCommunityManagerDoes from "../../../components/services/businessservices/HireCommunityManager/WhatCommunityManagerDoes";
 import FindingRightManager from "../../../components/services/businessservices/HireCommunityManager/FindingRightManager";
+import CommunityDashboard from "../../../components/services/businessservices/HireCommunityManager/CommunityDashboard";
 import HowHiringWorks from "../../../components/services/businessservices/HireCommunityManager/HowHiringWorks";
 import WhyChooseCommunityManagement from "../../../components/services/businessservices/HireCommunityManager/WhyChooseCommunityManagement";
 import GetStarted from "../../../components/services/businessservices/HireCommunityManager/GetStarted";
@@ -23,6 +24,7 @@ const HireCommunityManager = () => {
       <CommunityManagerHero/>
       <WhatCommunityManagerDoes/>
       <FindingRightManager/>
+      <CommunityDashboard/>
       <HowHiringWorks/>
       <WhyChooseCommunityManagement/>
       <GetStarted/>

@@ -5,14 +5,13 @@ const faqs = [
     q: "How is this different from a content agency?",
     a: "Agencies sell you a chain. Account manager, editor, and then a writer somewhere underneath both. Skip the chain, deal with the writer.",
   },
-
   {
-    q: "What if the writer isn't the right fit?",
-    a: "Say so and we'll find someone else. That doesn't touch your monthly limit, only actual hires do.",
+    q: "Can I hire just one writer, or do I need a package?",
+    a: "You can hire one writer. Your plan determines how many roles you can post, so you can hire based on the work you actually have rather than committing to a full content package.",
   },
   {
-    q: "Do I need to review every applicant myself?",
-    a: "Already handled on our end. You just confirm fit once you're matched.",
+    q: "What if the writer isn't the right fit?",
+    a: "Tell us what isn't working and we'll find someone else. That doesn't touch your monthly limit, only confirmed hires do.",
   },
   {
     q: "Can I hire for multiple projects or brands?",
@@ -32,11 +31,7 @@ const faqs = [
   },
   {
     q: "Can I hire a website copywriter specifically, instead of a general content writer?",
-    a: "You can. Flag it if the work's website pages, product pages, or anything conversion-heavy, and you'll hire a website copywriter built for exactly that, not for long-form blogging.",
-  },
-  {
-    q: "What if I need ongoing content support instead of a single project?",
-    a: "Totally normal request. Mention it up front, and the match accounts for that from day one.",
+    a: "Yes, you can. Flag it if the work's website pages, product pages, or anything conversion-heavy, and you'll hire a website copywriter built for exactly that, not for long-form blogging.",
   },
   {
     q: "What if the delivered content doesn't meet expectations?",
@@ -135,5 +130,3 @@ export default function HireContentWritersCopywritersFAQ() {
     </section>
   );
 }
-
-

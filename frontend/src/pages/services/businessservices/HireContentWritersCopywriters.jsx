@@ -5,6 +5,7 @@ import Navbar from "../../../components/NavbarC";
 import ContentWritersHero from "../../../components/services/businessservices/HireContentWritersCopywriters/ContentWritersHero";
 import WhyHardToHire from "../../../components/services/businessservices/HireContentWritersCopywriters/WhyHardToHire";
 import WhoIsThisFor from "../../../components/services/businessservices/HireContentWritersCopywriters/WhoIsThisFor";
+import ManagedVisibility from "../../../components/services/businessservices/HireContentWritersCopywriters/ManagedVisibility";
 import ProblemsWeSolve from "../../../components/services/businessservices/HireContentWritersCopywriters/ProblemsWeSolve";
 import ContentProcess from "../../../components/services/businessservices/HireContentWritersCopywriters/ContentProcess";
 import WhyHireThrough from "../../../components/services/businessservices/HireContentWritersCopywriters/WhyHireThrough";
@@ -25,6 +26,7 @@ const HireContentWritersCopywriters = () => {
       <ContentWritersHero/>
       <WhyHardToHire/>
       <WhoIsThisFor/>
+      <ManagedVisibility/>
       <ProblemsWeSolve/>
       <ContentProcess/>
       <WhyHireThrough/>
@@ -32,8 +34,6 @@ const HireContentWritersCopywriters = () => {
       <HireContentWritersCopywritersFAQ/>
       <ContentFinalCTA/>
       <Footer />
-
-
 
     </main>
   )

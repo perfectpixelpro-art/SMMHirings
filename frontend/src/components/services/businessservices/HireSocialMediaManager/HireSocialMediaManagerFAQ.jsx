@@ -2,54 +2,52 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "How Is This Different From a Social Media Management Company?",
-    a: "An agency sells you a package: account manager, strategist, and somebody further down the chain actually doing the posting. Skip the middle two. You're talking straight to the person who'll run your channels.",
+    q: "How is this different from hiring a social media agency?",
+    a: "With an agency, you may have an account manager or strategist between you and the person actually managing your social media. With SMM Hiring, you work directly with the person handling your channels. That makes feedback quicker, and responsibilities clearer.",
   },
   {
-    q: "Can I Hire Just One Person, or Do I Need a Package?",
-    a: "One's fine. The plan you're on just caps how many roles you can post, not how many people get reviewed on your behalf.",
-  },
-
-
-  {
-    q: "What Happens If the Shortlist Isn't Right?",
-    a: "Say so and we'll send another. A miss doesn't eat into your monthly limit; that only happens once you actually hire someone.",
+    q: "Can I hire just one social media manager, or do I need multiple?",
+    a: "You can hire just one. Your plan limits the number of roles you can post, not the number of candidates you can review. If you later need help with any other platform you can post another role under your plan.",
   },
   {
-    q: "Do I Have to Interview Every Candidate Myself?",
-    a: "No, that part's already done. Talk to whoever looks promising, then make the final call yourself.",
+    q: "Is there a long-term contract?",
+    a: "No. Plans run month to month, so you can cancel whenever you need to. There are no setup fees or long-term commitments.",
   },
   {
-    q: "Can I Hire Across Multiple Brands?",
-    a: "Yes, that's exactly what the Starter and Growth tiers are built for: several hires without the agency markup stacking on each one.",
+    q: "What if the shortlist isn't right for my business?",
+    a: "If the shortlist isn't quite right, let the team know what's missing and a new one can be provided. It won't count toward your monthly limit. You're only charged against the limit when you make a hire.",
   },
   {
-    q: "Is This Just for Social Media, or Does It Cover Broader Marketing Too?",
-    a: "Social media sits at the center, but strategy, content, community management, and reporting can all fold into the role. Need something closer to full social media marketing services? Just spell that out when you post.",
+    q: "Do I have to interview every candidate myself?",
+    a: "No. Candidates are reviewed against your requirements before they reach you. You can focus your time on the people who look like a good fit, then decide who to interview and hire.",
   },
   {
-    q: "What's Actually Different Between a Dedicated and a Freelance Social Media Manager?",
-    a: "A dedicated social media manager is on your account and nothing else. A freelance social media manager is usually splitting time across a few clients, working project by project or on retainer. Which one makes sense really comes down to how much ongoing support you actually need.",
+    q: "Can I hire for more than social media?",
+    a: "Yes. You can build the role around what your business actually needs. That might include content creation, social media strategy, community management, reporting, paid ads, or influencer coordination.",
   },
   {
-    q: "My Team Works In-Office. Does a Remote Social Media Manager Still Make Sense?",
-    a: "It does. There's nothing about managing social media that requires sitting at the same desk as everyone else. A remote social media manager handles the content, the publishing, the community management, all of it, from wherever they happen to be.",
+    q: "My team works in-office. Can a remote social media manager still work well?",
+    a: "Yes. Social media work can be managed remotely. Your manager can plan content, create or coordinate assets, schedule posts, manage comments and messages, and send reports without being in your office.",
   },
   {
-    q: "How's a Virtual Social Media Manager Different From an In-House Hire?",
-    a: "Same responsibilities, day to day, minus the office. A virtual social media manager owns the work without needing a desk to do it from.",
+    q: "Do candidates have social media strategy experience?",
+    a: "Depends on the role you create. Some managers are strongest at content planning and execution, while others can build a strategy around your audience, content pillars, goals, and platforms. If you need both strategy and execution, include both in your requirements.",
   },
   {
-    q: "Do Candidates Come With Social Media Strategy Experience?",
-    a: "Depends what you ask for. Building a social media strategy from scratch is a different skill set than executing one that already exists, so just be clear in your post about which one you need.",
+    q: "What if the social media manager I hire doesn't work out?",
+    a: "You can post the role again. Only confirmed hires count toward your monthly limit, so you aren't using up your allowance on candidates who don't work out.",
   },
   {
-    q: "What If the Professional Social Media Manager I Hire Doesn't Work Out?",
-    a: "Post the role again. Screening starts fresh, and it's only confirmed hires that count against your monthly limit, not the attempts along the way.",
+    q: "Can I hire for other roles besides social media?",
+    a: "Yes. SMM Hiring lets you find content writers, copywriters, short-form video editors, graphic designers, paid ads specialists, analytics and reporting experts, web developers, and other marketing professionals.",
   },
   {
-    q: "Can This Cover Multiple Locations or Brands?",
-    a: "Yes. Businesses running several brands or locations usually spec each one out separately, so the right specialist ends up matched to the right account instead of one hire stretched thin across everything.",
+    q: "Can I hire someone part-time?",
+    a: "Yes. You can define the workload around your needs. If you only need a few hours a week for content scheduling and community management, you can set the role up that way.",
+  },
+  {
+    q: "Will I still have control over my social media accounts?",
+    a: "Yes. You remain in control of your business accounts and can decide what access the manager needs. You can also agree on an approval process for content before anything is published.",
   },
 ];
 
